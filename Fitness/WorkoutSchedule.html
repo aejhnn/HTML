@@ -1,143 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPL Workout Routine</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#08090d',
+                        cardBg: '#11131c',
+                        cardBorder: '#1c202e',
+                        accentBlue: '#38bdf8',
+                        accentPurple: '#a855f7',
+                        accentGreen: '#34d399',
+                        marvelRed: '#E50914'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-blue { box-shadow: 0 0 25px rgba(56, 189, 248, 0.15); }
+    </style>
 </head>
-<body>
+<body class="bg-darkBg text-gray-200 font-sans antialiased min-h-screen p-4 sm:p-8">
 
-    <h1>Push / Pull / Legs (PPL) Training Program</h1>
-    <p>A classic 3-day split targeting muscle groups based on movement patterns.</p>
+    <div class="max-w-6xl mx-auto space-y-8">
 
-    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48" alt="Dumbbell Training" width="350" />
+        <!-- HEADER SECTION -->
+        <header class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 glow-blue flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="space-y-2">
+                <div class="inline-flex items-center space-x-2 bg-marvelRed/10 border border-marvelRed/30 text-marvelRed px-3 py-1 rounded-full text-xs font-mono font-bold uppercase">
+                    <span>3-Day Split Program</span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
+                    Push / Pull / Legs (PPL) Training Program
+                </h1>
+                <p class="text-sm text-gray-400 font-mono">
+                    EQUIPMENT: <strong class="text-accentBlue">Dumbbells & Bodyweight</strong>
+                </p>
+            </div>
 
-    <h2>Routine Overview</h2>
-    <ul>
-        <li><strong>Day 1:</strong> Push (Chest, Shoulders & Triceps)</li>
-        <li><strong>Day 2:</strong> Pull (Back, Rear Delts & Biceps)</li>
-        <li><strong>Day 3:</strong> Legs & Core (Quads, Hamstrings, Calves & Abs)</li>
-        <li><strong>Equipment Needed:</strong> Dumbbells & Bodyweight</li>
-    </ul>
+            <!-- QUICK STATS -->
+            <div class="grid grid-cols-3 gap-3">
+                <div class="bg-darkBg border border-cardBorder p-3.5 rounded-xl text-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-500">EXERCISES</span>
+                    <div class="text-lg font-black text-accentBlue">13</div>
+                </div>
+                <div class="bg-darkBg border border-cardBorder p-3.5 rounded-xl text-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-500">SPLIT</span>
+                    <div class="text-lg font-black text-accentPurple">3 Days</div>
+                </div>
+                <div class="bg-darkBg border border-cardBorder p-3.5 rounded-xl text-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-500">FOCUS</span>
+                    <div class="text-lg font-black text-accentGreen">Hypertrophy</div>
+                </div>
+            </div>
+        </header>
 
-    <h2>Day 1: Push Day</h2>
-    <table border="1" cellpadding="8" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Exercise</th>
-                <th>Sets</th>
-                <th>Reps</th>
-                <th>Target Muscle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Dumbbell Floor Press</td>
-                <td>4</td>
-                <td>10 - 12</td>
-                <td>Chest</td>
-            </tr>
-            <tr>
-                <td>Dumbbell Overhead Shoulder Press</td>
-                <td>3</td>
-                <td>10 - 12</td>
-                <td>Shoulders</td>
-            </tr>
-            <tr>
-                <td>Dumbbell Lateral Raises</td>
-                <td>3</td>
-                <td>12 - 15</td>
-                <td>Side Delts</td>
-            </tr>
-            <tr>
-                <td>Overhead Dumbbell Triceps Extension</td>
-                <td>3</td>
-                <td>12 - 15</td>
-                <td>Triceps</td>
-            </tr>
-        </tbody>
-    </table>
+        <!-- ROUTINE OVERVIEW CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div onclick="filterDay('push')" class="cursor-pointer bg-cardBg border border-cardBorder p-5 rounded-2xl hover:border-marvelRed/50 transition space-y-2 group">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono font-bold text-marvelRed uppercase">DAY 1</span>
+                    <span class="text-xs text-gray-500 font-mono">4 Exercises</span>
+                </div>
+                <h3 class="text-lg font-bold text-white group-hover:text-marvelRed transition">Push Day</h3>
+                <p class="text-xs text-gray-400">Chest, Shoulders & Triceps</p>
+            </div>
 
-    <h2>Day 2: Pull Day</h2>
-    <table border="1" cellpadding="8" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Exercise</th>
-                <th>Sets</th>
-                <th>Reps</th>
-                <th>Target Muscle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Single-Arm Dumbbell Rows</td>
-                <td>4</td>
-                <td>10 - 12</td>
-                <td>Lats / Back</td>
-            </tr>
-            <tr>
-                <td>Dumbbell Reverse Flyes</td>
-                <td>3</td>
-                <td>12 - 15</td>
-                <td>Rear Delts</td>
-            </tr>
-            <tr>
-                <td>Dumbbell Bicep Curls</td>
-                <td>3</td>
-                <td>10 - 12</td>
-                <td>Biceps</td>
-            </tr>
-            <tr>
-                <td>Dumbbell Hammer Curls</td>
-                <td>3</td>
-                <td>10 - 12</td>
-                <td>Brachialis / Forearms</td>
-            </tr>
-        </tbody>
-    </table>
+            <div onclick="filterDay('pull')" class="cursor-pointer bg-cardBg border border-cardBorder p-5 rounded-2xl hover:border-accentBlue/50 transition space-y-2 group">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono font-bold text-accentBlue uppercase">DAY 2</span>
+                    <span class="text-xs text-gray-500 font-mono">4 Exercises</span>
+                </div>
+                <h3 class="text-lg font-bold text-white group-hover:text-accentBlue transition">Pull Day</h3>
+                <p class="text-xs text-gray-400">Back, Rear Delts & Biceps</p>
+            </div>
 
-    <h2>Day 3: Leg & Core Day</h2>
-    <table border="1" cellpadding="8" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Exercise</th>
-                <th>Sets</th>
-                <th>Reps</th>
-                <th>Target Muscle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Dumbbell Goblet Squats</td>
-                <td>4</td>
-                <td>10 - 12</td>
-                <td>Quadriceps</td>
-            </tr>
-            <tr>
-                <td>Dumbbell Romanian Deadlifts</td>
-                <td>4</td>
-                <td>10 - 12</td>
-                <td>Hamstrings / Glutes</td>
-            </tr>
-            <tr>
-                <td>Dumbbell Walking Lunges</td>
-                <td>3</td>
-                <td>10 per leg</td>
-                <td>Quads & Glutes</td>
-            </tr>
-            <tr>
-                <td>Standing Calf Raises</td>
-                <td>4</td>
-                <td>15 - 20</td>
-                <td>Calves</td>
-            </tr>
-            <tr>
-                <td>Plank Hold</td>
-                <td>3</td>
-                <td>60 seconds</td>
-                <td>Core / Abs</td>
-            </tr>
-        </tbody>
-    </table>
+            <div onclick="filterDay('legs')" class="cursor-pointer bg-cardBg border border-cardBorder p-5 rounded-2xl hover:border-accentGreen/50 transition space-y-2 group">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono font-bold text-accentGreen uppercase">DAY 3</span>
+                    <span class="text-xs text-gray-500 font-mono">5 Exercises</span>
+                </div>
+                <h3 class="text-lg font-bold text-white group-hover:text-accentGreen transition">Legs & Core Day</h3>
+                <p class="text-xs text-gray-400">Quads, Hamstrings, Calves & Abs</p>
+            </div>
+        </div>
+
+        <!-- CONTROLS BAR: DAY TABS & SEARCH -->
+        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-cardBg border border-cardBorder p-4 rounded-xl">
+            <!-- Day Filter Tabs -->
+            <div class="flex flex-wrap gap-2" id="dayTabs">
+                <button onclick="filterDay('all')" class="tab-btn active bg-accentBlue text-darkBg font-bold px-4 py-2 rounded-lg text-xs transition">All Workouts</button>
+                <button onclick="filterDay('push')" class="tab-btn bg-darkBg border border-cardBorder hover:border-marvelRed text-gray-300 font-medium px-4 py-2 rounded-lg text-xs transition">Push Day</button>
+                <button onclick="filterDay('pull')" class="tab-btn bg-darkBg border border-cardBorder hover:border-accentBlue text-gray-300 font-medium px-4 py-2 rounded-lg text-xs transition">Pull Day</button>
+                <button onclick="filterDay('legs')" class="tab-btn bg-darkBg border border-cardBorder hover:border-accentGreen text-gray-300 font-medium px-4 py-2 rounded-lg text-xs transition">Legs & Core</button>
+            </div>
+
+            <!-- Live Search Bar -->
+            <input type="text" id="workoutSearch" onkeyup="searchWorkouts()" placeholder="Search exercise or muscle..." class="bg-darkBg border border-cardBorder px-4 py-2 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-accentBlue w-full md:w-64">
+        </div>
+
+        <!-- WORKOUT TABLES -->
+
+        <!-- DAY 1: PUSH DAY -->
+        <div class="workout-section push space-y-4">
+            <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-marvelRed"></span>
+                <h2 class="text-xl font-bold text-white">Day 1: Push Day</h2>
+            </div>
+            <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-x-auto shadow-xl">
+                <table class="w-full text-left text-sm border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="bg-darkBg/80 border-b border-cardBorder text-gray-400 font-mono text-xs uppercase">
+                            <th class="p-4">Done</th>
+                            <th class="p-4">Exercise</th>
+                            <th class="p-4">Sets</th>
+                            <th class="p-4">Reps</th>
+                            <th class="p-4">Target Muscle</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-cardBorder/60 text-gray-300">
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-marvelRed focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Floor Press</td>
+                            <td class="p-4 font-mono">4</td>
+                            <td class="p-4 font-mono text-xs">10 - 12</td>
+                            <td class="p-4"><span class="bg-marvelRed/10 text-marvelRed border border-marvelRed/30 px-2.5 py-1 rounded-md font-mono text-xs">Chest</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-marvelRed focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Overhead Shoulder Press</td>
+                            <td class="p-4 font-mono">3</td>
+                            <td class="p-4 font-mono text-xs">10 - 12</td>
+                            <td class="p-4"><span class="bg-marvelRed/10 text-marvelRed border border-marvelRed/30 px-2.5 py-1 rounded-md font-mono text-xs">Shoulders</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-marvelRed focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Lateral Raises</td>
+                            <td class="p-4 font-mono">3</td>
+                            <td class="p-4 font-mono text-xs">12 - 15</td>
+                            <td class="p-4"><span class="bg-marvelRed/10 text-marvelRed border border-marvelRed/30 px-2.5 py-1 rounded-md font-mono text-xs">Side Delts</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-marvelRed focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Overhead Dumbbell Triceps Extension</td>
+                            <td class="p-4 font-mono">3</td>
+                            <td class="p-4 font-mono text-xs">12 - 15</td>
+                            <td class="p-4"><span class="bg-marvelRed/10 text-marvelRed border border-marvelRed/30 px-2.5 py-1 rounded-md font-mono text-xs">Triceps</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- DAY 2: PULL DAY -->
+        <div class="workout-section pull space-y-4">
+            <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-accentBlue"></span>
+                <h2 class="text-xl font-bold text-white">Day 2: Pull Day</h2>
+            </div>
+            <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-x-auto shadow-xl">
+                <table class="w-full text-left text-sm border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="bg-darkBg/80 border-b border-cardBorder text-gray-400 font-mono text-xs uppercase">
+                            <th class="p-4">Done</th>
+                            <th class="p-4">Exercise</th>
+                            <th class="p-4">Sets</th>
+                            <th class="p-4">Reps</th>
+                            <th class="p-4">Target Muscle</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-cardBorder/60 text-gray-300">
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentBlue focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Single-Arm Dumbbell Rows</td>
+                            <td class="p-4 font-mono">4</td>
+                            <td class="p-4 font-mono text-xs">10 - 12</td>
+                            <td class="p-4"><span class="bg-accentBlue/10 text-accentBlue border border-accentBlue/30 px-2.5 py-1 rounded-md font-mono text-xs">Lats / Back</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentBlue focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Reverse Flyes</td>
+                            <td class="p-4 font-mono">3</td>
+                            <td class="p-4 font-mono text-xs">12 - 15</td>
+                            <td class="p-4"><span class="bg-accentBlue/10 text-accentBlue border border-accentBlue/30 px-2.5 py-1 rounded-md font-mono text-xs">Rear Delts</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentBlue focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Bicep Curls</td>
+                            <td class="p-4 font-mono">3</td>
+                            <td class="p-4 font-mono text-xs">10 - 12</td>
+                            <td class="p-4"><span class="bg-accentBlue/10 text-accentBlue border border-accentBlue/30 px-2.5 py-1 rounded-md font-mono text-xs">Biceps</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentBlue focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Hammer Curls</td>
+                            <td class="p-4 font-mono">3</td>
+                            <td class="p-4 font-mono text-xs">10 - 12</td>
+                            <td class="p-4"><span class="bg-accentBlue/10 text-accentBlue border border-accentBlue/30 px-2.5 py-1 rounded-md font-mono text-xs">Forearms</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- DAY 3: LEGS & CORE DAY -->
+        <div class="workout-section legs space-y-4">
+            <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-accentGreen"></span>
+                <h2 class="text-xl font-bold text-white">Day 3: Leg & Core Day</h2>
+            </div>
+            <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-x-auto shadow-xl">
+                <table class="w-full text-left text-sm border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="bg-darkBg/80 border-b border-cardBorder text-gray-400 font-mono text-xs uppercase">
+                            <th class="p-4">Done</th>
+                            <th class="p-4">Exercise</th>
+                            <th class="p-4">Sets</th>
+                            <th class="p-4">Reps</th>
+                            <th class="p-4">Target Muscle</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-cardBorder/60 text-gray-300">
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentGreen focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Goblet Squats</td>
+                            <td class="p-4 font-mono">4</td>
+                            <td class="p-4 font-mono text-xs">10 - 12</td>
+                            <td class="p-4"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono text-xs">Quadriceps</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentGreen focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Romanian Deadlifts</td>
+                            <td class="p-4 font-mono">4</td>
+                            <td class="p-4 font-mono text-xs">10 - 12</td>
+                            <td class="p-4"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono text-xs">Hamstrings</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentGreen focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Dumbbell Walking Lunges</td>
+                            <td class="p-4 font-mono">3</td>
+                            <td class="p-4 font-mono text-xs">10 per leg</td>
+                            <td class="p-4"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono text-xs">Quads & Glutes</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentGreen focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Standing Calf Raises</td>
+                            <td class="p-4 font-mono">4</td>
+                            <td class="p-4 font-mono text-xs">15 - 20</td>
+                            <td class="p-4"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono text-xs">Calves</span></td>
+                        </tr>
+                        <tr class="workout-row hover:bg-white/5 transition">
+                            <td class="p-4"><input type="checkbox" class="w-4 h-4 rounded border-cardBorder text-accentGreen focus:ring-0 cursor-pointer"></td>
+                            <td class="p-4 font-bold text-white">Plank Hold</td>
+                            <td class="p-4 font-mono">3</td>
+                            <td class="p-4 font-mono text-xs">60 seconds</td>
+                            <td class="p-4"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono text-xs">Core / Abs</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        function filterDay(day) {
+            const sections = document.querySelectorAll('.workout-section');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-accentBlue', 'text-darkBg', 'font-bold');
+                btn.classList.add('bg-darkBg', 'text-gray-300', 'border', 'border-cardBorder');
+            });
+
+            if (event && event.target) {
+                event.target.classList.remove('bg-darkBg', 'text-gray-300', 'border', 'border-cardBorder');
+                event.target.classList.add('bg-accentBlue', 'text-darkBg', 'font-bold');
+            }
+
+            sections.forEach(section => {
+                if (day === 'all' || section.classList.contains(day)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        function searchWorkouts() {
+            const query = document.getElementById('workoutSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('.workout-row');
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
