@@ -1,166 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>Daily Class Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Year | Second Term Schedule | BSCS-252</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#08090d',
+                        cardBg: '#11131c',
+                        cardBorder: '#1c202e',
+                        accentBlue: '#38bdf8',
+                        accentPurple: '#a855f7',
+                        accentGreen: '#34d399'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-blue { box-shadow: 0 0 25px rgba(56, 189, 248, 0.15); }
+    </style>
 </head>
-<body>
+<body class="bg-darkBg text-gray-200 font-sans antialiased min-h-screen p-4 sm:p-8">
 
-    <h1>2nd Year | Second Term Schedule | BSCS-252</h1>
+    <div class="max-w-6xl mx-auto space-y-8">
 
-    <table border="1" cellpadding="8" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Day</th>
-                <th>Time</th>
-                <th>Subject Code</th>
-                <th>Section</th>
-                <th>Room</th>
-                <th>Units</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- ========================================== -->
-            <!-- MONDAY                                     -->
-            <!-- ========================================== -->
-            <tr>
-                <td rowspan="4"><strong>Monday</strong></td>
-                <td>11:00 AM - 01:00 PM</td>
-                <td>GEFIL01X</td>
-                <td>CS252</td>
-                <td>703</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>01:00 PM - 03:00 PM</td>
-                <td>MCWTS01X</td>
-                <td>CS252</td>
-                <td>823</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>03:00 PM - 05:00 PM</td>
-                <td>CIWEBPRL</td>
-                <td>CS252</td>
-                <td>833</td>
-                <td rowspan="2">3.0</td>
-            </tr>
-            <tr>
-                <td>05:00 PM - 06:20 PM</td>
-                <td>CIWEBPRL</td>
-                <td>CS252</td>
-                <td>808</td>
-            </tr>
+        <!-- HEADER SECTION -->
+        <header class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 glow-blue flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="space-y-2">
+                <div class="inline-flex items-center space-x-2 bg-accentBlue/10 border border-accentBlue/30 text-accentBlue px-3 py-1 rounded-full text-xs font-mono font-bold uppercase">
+                    <span>National University Cebu</span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
+                    2nd Year | Second Term Schedule
+                </h1>
+                <p class="text-sm text-gray-400 font-mono">
+                    SECTION: <strong class="text-accentPurple">BSCS-252</strong>
+                </p>
+            </div>
 
-            <!-- ========================================== -->
-            <!-- TUESDAY                                    -->
-            <!-- ========================================== -->
-            <tr>
-                <td rowspan="5"><strong>Tuesday</strong></td>
-                <td>09:40 AM - 11:00 AM</td>
-                <td>CCOMPORL</td>
-                <td>CS252</td>
-                <td>834</td>
-                <td rowspan="2">3.0</td>
-            </tr>
-            <tr>
-                <td>11:00 AM - 01:00 PM</td>
-                <td>CCOMPORL</td>
-                <td>CS252</td>
-                <td>827</td>
-            </tr>
-            <tr>
-                <td>01:00 PM - 03:00 PM</td>
-                <td>CCQUAMET</td>
-                <td>CS252</td>
-                <td>827</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>03:00 PM - 05:00 PM</td>
-                <td>CCDATSYL</td>
-                <td>CS252</td>
-                <td>834</td>
-                <td rowspan="2">3.0</td>
-            </tr>
-            <tr>
-                <td>05:00 PM - 06:20 PM</td>
-                <td>CCDATSYL</td>
-                <td>CS252</td>
-                <td>808</td>
-            </tr>
+            <!-- QUICK STATS -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div class="bg-darkBg border border-cardBorder p-3.5 rounded-xl text-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-500">TOTAL UNITS</span>
+                    <div class="text-lg font-black text-accentBlue">18.0</div>
+                </div>
+                <div class="bg-darkBg border border-cardBorder p-3.5 rounded-xl text-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-500">SUBJECTS</span>
+                    <div class="text-lg font-black text-accentPurple">6</div>
+                </div>
+                <div class="bg-darkBg border border-cardBorder p-3.5 rounded-xl text-center col-span-2 sm:col-span-1">
+                    <span class="text-[10px] font-mono uppercase text-gray-500">CLASS DAYS</span>
+                    <div class="text-lg font-black text-accentGreen">4 Days</div>
+                </div>
+            </div>
+        </header>
 
-            <!-- ========================================== -->
-            <!-- THURSDAY                                   -->
-            <!-- ========================================== -->
-            <tr>
-                <td rowspan="4"><strong>Thursday</strong></td>
-                <td>11:00 AM - 01:00 PM</td>
-                <td>GEFIL01X</td>
-                <td>CS252</td>
-                <td>703</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>01:00 PM - 03:00 PM</td>
-                <td>MCWTS01X</td>
-                <td>CS252</td>
-                <td>823</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>03:00 PM - 05:00 PM</td>
-                <td>CIWEBPRL</td>
-                <td>CS252</td>
-                <td>833</td>
-                <td rowspan="2">3.0</td>
-            </tr>
-            <tr>
-                <td>05:00 PM - 06:20 PM</td>
-                <td>CIWEBPRL</td>
-                <td>CS252</td>
-                <td>808</td>
-            </tr>
+        <!-- CONTROLS BAR: DAY TABS & SEARCH -->
+        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-cardBg border border-cardBorder p-4 rounded-xl">
+            <!-- Day Filter Tabs -->
+            <div class="flex flex-wrap gap-2" id="dayTabs">
+                <button onclick="filterDay('all')" class="tab-btn active bg-accentBlue text-darkBg font-bold px-4 py-2 rounded-lg text-xs transition">All Days</button>
+                <button onclick="filterDay('monday')" class="tab-btn bg-darkBg border border-cardBorder hover:border-accentBlue text-gray-300 font-medium px-4 py-2 rounded-lg text-xs transition">Monday</button>
+                <button onclick="filterDay('tuesday')" class="tab-btn bg-darkBg border border-cardBorder hover:border-accentBlue text-gray-300 font-medium px-4 py-2 rounded-lg text-xs transition">Tuesday</button>
+                <button onclick="filterDay('thursday')" class="tab-btn bg-darkBg border border-cardBorder hover:border-accentBlue text-gray-300 font-medium px-4 py-2 rounded-lg text-xs transition">Thursday</button>
+                <button onclick="filterDay('friday')" class="tab-btn bg-darkBg border border-cardBorder hover:border-accentBlue text-gray-300 font-medium px-4 py-2 rounded-lg text-xs transition">Friday</button>
+            </div>
 
-            <!-- ========================================== -->
-            <!-- FRIDAY                                     -->
-            <!-- ========================================== -->
-            <tr>
-                <td rowspan="5"><strong>Friday</strong></td>
-                <td>09:40 AM - 11:00 AM</td>
-                <td>CCOMPORL</td>
-                <td>CS252</td>
-                <td>834</td>
-                <td rowspan="2">3.0</td>
-            </tr>
-            <tr>
-                <td>11:00 AM - 01:00 PM</td>
-                <td>CCOMPORL</td>
-                <td>CS252</td>
-                <td>827</td>
-            </tr>
-            <tr>
-                <td>01:00 PM - 03:00 PM</td>
-                <td>CCQUAMET</td>
-                <td>CS252</td>
-                <td>827</td>
-                <td>3.0</td>
-            </tr>
-            <tr>
-                <td>03:00 PM - 05:00 PM</td>
-                <td>CCDATSYL</td>
-                <td>CS252</td>
-                <td>834</td>
-                <td rowspan="2">3.0</td>
-            </tr>
-            <tr>
-                <td>05:00 PM - 06:20 PM</td>
-                <td>CCDATSYL</td>
-                <td>CS252</td>
-                <td>808</td>
-            </tr>
-        </tbody>
-    </table>
+            <!-- Live Search Bar -->
+            <input type="text" id="scheduleSearch" onkeyup="searchSchedule()" placeholder="Search subject code or room..." class="bg-darkBg border border-cardBorder px-4 py-2 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-accentBlue w-full md:w-64">
+        </div>
+
+        <!-- MODERN SCHEDULE TABLE CONTAINER -->
+        <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-x-auto shadow-2xl">
+            <table class="w-full text-left text-sm border-collapse min-w-[650px]">
+                <thead>
+                    <tr class="bg-darkBg/80 border-b border-cardBorder text-gray-400 font-mono text-xs uppercase">
+                        <th class="p-4">Day</th>
+                        <th class="p-4">Time</th>
+                        <th class="p-4">Subject Code</th>
+                        <th class="p-4">Section</th>
+                        <th class="p-4">Room</th>
+                        <th class="p-4">Units</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-cardBorder/60 text-gray-300" id="scheduleBody">
+
+                    <!-- MONDAY -->
+                    <tr class="schedule-row monday hover:bg-white/5 transition">
+                        <td class="p-4 font-bold text-accentBlue" rowspan="4">Monday</td>
+                        <td class="p-4 font-mono text-xs text-gray-300">11:00 AM - 01:00 PM</td>
+                        <td class="p-4"><span class="bg-accentBlue/10 text-accentBlue border border-accentBlue/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">GEFIL01X</span></td>
+                        <td class="p-4 font-mono text-xs">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">703</td>
+                        <td class="p-4 font-bold text-gray-200">3.0</td>
+                    </tr>
+                    <tr class="schedule-row monday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">01:00 PM - 03:00 PM</td>
+                        <td class="p-4"><span class="bg-accentPurple/10 text-accentPurple border border-accentPurple/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">MCWTS01X</span></td>
+                        <td class="p-4 font-mono text-xs">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">823</td>
+                        <td class="p-4 font-bold text-gray-200">3.0</td>
+                    </tr>
+                    <tr class="schedule-row monday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">03:00 PM - 05:00 PM</td>
+                        <td class="p-4" rowspan="2"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">CIWEBPRL</span></td>
+                        <td class="p-4 font-mono text-xs" rowspan="2">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">833</td>
+                        <td class="p-4 font-bold text-gray-200" rowspan="2">3.0</td>
+                    </tr>
+                    <tr class="schedule-row monday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">05:00 PM - 06:20 PM</td>
+                        <td class="p-4 font-mono font-semibold text-white">808</td>
+                    </tr>
+
+                    <!-- TUESDAY -->
+                    <tr class="schedule-row tuesday hover:bg-white/5 transition border-t-2 border-cardBorder">
+                        <td class="p-4 font-bold text-accentPurple" rowspan="5">Tuesday</td>
+                        <td class="p-4 font-mono text-xs text-gray-300">09:40 AM - 11:00 AM</td>
+                        <td class="p-4" rowspan="2"><span class="bg-accentPurple/10 text-accentPurple border border-accentPurple/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">CCOMPORL</span></td>
+                        <td class="p-4 font-mono text-xs" rowspan="2">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">834</td>
+                        <td class="p-4 font-bold text-gray-200" rowspan="2">3.0</td>
+                    </tr>
+                    <tr class="schedule-row tuesday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">11:00 AM - 01:00 PM</td>
+                        <td class="p-4 font-mono font-semibold text-white">827</td>
+                    </tr>
+                    <tr class="schedule-row tuesday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">01:00 PM - 03:00 PM</td>
+                        <td class="p-4"><span class="bg-accentBlue/10 text-accentBlue border border-accentBlue/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">CCQUAMET</span></td>
+                        <td class="p-4 font-mono text-xs">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">827</td>
+                        <td class="p-4 font-bold text-gray-200">3.0</td>
+                    </tr>
+                    <tr class="schedule-row tuesday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">03:00 PM - 05:00 PM</td>
+                        <td class="p-4" rowspan="2"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">CCDATSYL</span></td>
+                        <td class="p-4 font-mono text-xs" rowspan="2">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">834</td>
+                        <td class="p-4 font-bold text-gray-200" rowspan="2">3.0</td>
+                    </tr>
+                    <tr class="schedule-row tuesday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">05:00 PM - 06:20 PM</td>
+                        <td class="p-4 font-mono font-semibold text-white">808</td>
+                    </tr>
+
+                    <!-- THURSDAY -->
+                    <tr class="schedule-row thursday hover:bg-white/5 transition border-t-2 border-cardBorder">
+                        <td class="p-4 font-bold text-accentBlue" rowspan="4">Thursday</td>
+                        <td class="p-4 font-mono text-xs text-gray-300">11:00 AM - 01:00 PM</td>
+                        <td class="p-4"><span class="bg-accentBlue/10 text-accentBlue border border-accentBlue/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">GEFIL01X</span></td>
+                        <td class="p-4 font-mono text-xs">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">703</td>
+                        <td class="p-4 font-bold text-gray-200">3.0</td>
+                    </tr>
+                    <tr class="schedule-row thursday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">01:00 PM - 03:00 PM</td>
+                        <td class="p-4"><span class="bg-accentPurple/10 text-accentPurple border border-accentPurple/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">MCWTS01X</span></td>
+                        <td class="p-4 font-mono text-xs">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">823</td>
+                        <td class="p-4 font-bold text-gray-200">3.0</td>
+                    </tr>
+                    <tr class="schedule-row thursday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">03:00 PM - 05:00 PM</td>
+                        <td class="p-4" rowspan="2"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">CIWEBPRL</span></td>
+                        <td class="p-4 font-mono text-xs" rowspan="2">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">833</td>
+                        <td class="p-4 font-bold text-gray-200" rowspan="2">3.0</td>
+                    </tr>
+                    <tr class="schedule-row thursday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">05:00 PM - 06:20 PM</td>
+                        <td class="p-4 font-mono font-semibold text-white">808</td>
+                    </tr>
+
+                    <!-- FRIDAY -->
+                    <tr class="schedule-row friday hover:bg-white/5 transition border-t-2 border-cardBorder">
+                        <td class="p-4 font-bold text-accentPurple" rowspan="5">Friday</td>
+                        <td class="p-4 font-mono text-xs text-gray-300">09:40 AM - 11:00 AM</td>
+                        <td class="p-4" rowspan="2"><span class="bg-accentPurple/10 text-accentPurple border border-accentPurple/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">CCOMPORL</span></td>
+                        <td class="p-4 font-mono text-xs" rowspan="2">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">834</td>
+                        <td class="p-4 font-bold text-gray-200" rowspan="2">3.0</td>
+                    </tr>
+                    <tr class="schedule-row friday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">11:00 AM - 01:00 PM</td>
+                        <td class="p-4 font-mono font-semibold text-white">827</td>
+                    </tr>
+                    <tr class="schedule-row friday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">01:00 PM - 03:00 PM</td>
+                        <td class="p-4"><span class="bg-accentBlue/10 text-accentBlue border border-accentBlue/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">CCQUAMET</span></td>
+                        <td class="p-4 font-mono text-xs">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">827</td>
+                        <td class="p-4 font-bold text-gray-200">3.0</td>
+                    </tr>
+                    <tr class="schedule-row friday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">03:00 PM - 05:00 PM</td>
+                        <td class="p-4" rowspan="2"><span class="bg-accentGreen/10 text-accentGreen border border-accentGreen/30 px-2.5 py-1 rounded-md font-mono font-bold text-xs">CCDATSYL</span></td>
+                        <td class="p-4 font-mono text-xs" rowspan="2">CS252</td>
+                        <td class="p-4 font-mono font-semibold text-white">834</td>
+                        <td class="p-4 font-bold text-gray-200" rowspan="2">3.0</td>
+                    </tr>
+                    <tr class="schedule-row friday hover:bg-white/5 transition">
+                        <td class="p-4 font-mono text-xs text-gray-300">05:00 PM - 06:20 PM</td>
+                        <td class="p-4 font-mono font-semibold text-white">808</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        function filterDay(day) {
+            const rows = document.querySelectorAll('.schedule-row');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-accentBlue', 'text-darkBg', 'font-bold');
+                btn.classList.add('bg-darkBg', 'text-gray-300', 'border', 'border-cardBorder');
+            });
+
+            event.target.classList.remove('bg-darkBg', 'text-gray-300', 'border', 'border-cardBorder');
+            event.target.classList.add('bg-accentBlue', 'text-darkBg', 'font-bold');
+
+            rows.forEach(row => {
+                if (day === 'all' || row.classList.contains(day)) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        function searchSchedule() {
+            const query = document.getElementById('scheduleSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('.schedule-row');
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
