@@ -1,111 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Favorite Games</title>
-<style>
-:root{--bg:#f5f4f7;--card:#fff;--line:#dcdae3;--ink:#16151c;--mute:#625f72;--pill:#ebe9f0;--a:#e0202e;--b:#d98a00;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0b0b0e;--card:#131419;--line:#24252d;--ink:#f4f3f8;--mute:#9a98a8;--pill:#15161b;--a:#ff2d3d;--b:#ffb43c}}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#0b0b0e;--card:#131419;--line:#24252d;--ink:#f4f3f8;--mute:#9a98a8;--pill:#15161b;--a:#ff2d3d;--b:#ffb43c}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
-.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 48px}
-h1{margin:0 0 24px;font-size:32px;font-weight:800;letter-spacing:-.5px}
-h1 span{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
-.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:28px}
-.pills{display:flex;flex-wrap:wrap;gap:10px;flex:1}
-.pill{padding:8px 18px;border-radius:99px;border:1px solid var(--line);background:var(--pill);color:var(--mute);font:inherit;font-weight:700;cursor:pointer}
-.pill:hover{color:var(--ink)}
-.pill.on{background:var(--a);border-color:var(--a);color:#fff}
-.search{width:260px;max-width:100%;padding:10px 16px;border-radius:99px;border:1px solid var(--line);background:var(--pill);color:var(--ink);font:inherit}
-button:focus-visible,input:focus-visible{outline:2px solid var(--b);outline-offset:2px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
-.card:hover{transform:translateY(-3px);border-color:var(--b)}
-.art{aspect-ratio:2/3;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;overflow:hidden;color:#fff}
-.art::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 25%,rgba(255,255,255,.35),transparent 45%),linear-gradient(to top,rgba(0,0,0,.75),transparent 60%)}
-.art::after{content:attr(data-i);position:absolute;top:-8px;right:-4px;font-size:120px;font-weight:900;line-height:1;opacity:.18}
-.art .t{position:relative;font-size:26px;font-weight:900;line-height:1.05;text-transform:uppercase;letter-spacing:-.5px;text-shadow:0 2px 12px rgba(0,0,0,.5);overflow-wrap:anywhere}
-.art .g{position:relative;margin-top:8px;font-size:13px;opacity:.85}
-.badge{position:absolute;z-index:1;top:12px;left:12px;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:800;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.3)}
-.badge.p{color:#ffd27a}.badge.w{color:#7ff0e4}
-.info{padding:14px 16px 18px}
-.info h3{margin:0 0 6px;font-size:15px}
-.info p{margin:4px 0;font-size:13px;font-style:italic;color:var(--mute)}
-.none{color:var(--mute);grid-column:1/-1}
-@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Favorite Games Showcase</title>
+  <style>
+    :root {
+      --bg: #0f1015;
+      --card: #181a20;
+      --card-hover: #22252e;
+      --line: #2a2d38;
+      --ink: #f4f3f8;
+      --mute: #9a98a8;
+      --pill: #1f222b;
+      --pill-hover: #2b2f3c;
+      --accent-a: #ff2d3d;
+      --accent-b: #ffb43c;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+
+    header {
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .pill {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      border: 1px solid var(--line);
+      background: var(--pill);
+      color: var(--mute);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background: var(--pill-hover);
+      color: var(--ink);
+      border-color: var(--mute);
+    }
+
+    .pill.active {
+      background: var(--accent-a);
+      border-color: var(--accent-a);
+      color: #fff;
+    }
+
+    .search {
+      width: 280px;
+      max-width: 100%;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      border: 1px solid var(--line);
+      background: var(--pill);
+      color: var(--ink);
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search:focus {
+      border-color: var(--accent-b);
+    }
+
+    button:focus-visible, input:focus-visible, a:focus-visible {
+      outline: 2px solid var(--accent-b);
+      outline-offset: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-b);
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .art-container {
+      aspect-ratio: 2/3;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px;
+      overflow: hidden;
+      background-color: var(--pill);
+    }
+
+    .art-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .art-image {
+      transform: scale(1.04);
+    }
+
+    .art-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 16, 21, 0.95) 0%, rgba(15, 16, 21, 0.4) 50%, rgba(15, 16, 21, 0.1) 100%);
+    }
+
+    .art-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .art-content .title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      overflow-wrap: anywhere;
+    }
+
+    .art-content .genre {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-b);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge {
+      position: absolute;
+      z-index: 3;
+      top: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: rgba(15, 16, 21, 0.75);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .badge.rotation { color: #50e3c2; border-color: rgba(80, 227, 194, 0.3); }
+    .badge.wishlist { color: #ffd27a; border-color: rgba(255, 210, 122, 0.3); }
+
+    .store-btn {
+      position: absolute;
+      z-index: 3;
+      top: 12px;
+      right: 12px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: var(--accent-a);
+      color: #fff;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: all 0.2s ease;
+    }
+
+    .card:hover .store-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+    }
+
+    .info p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--mute);
+      line-height: 1.4;
+    }
+
+    .info p.quote-primary {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .none {
+      color: var(--mute);
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 0;
+      font-size: 1rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, .art-image, .store-btn { transition: none; }
+      .card:hover { transform: none; }
+      .card:hover .art-image { transform: none; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>Favorite <span>Games</span></h1>
-  <div class="bar">
-    <div class="pills" id="pills"></div>
-    <input class="search" id="q" type="search" placeholder="Search games or genres..." aria-label="Search games">
+  <div class="wrap">
+    <header>
+      <h1>Favorite <span>Games</span></h1>
+    </header>
+
+    <div class="bar">
+      <nav class="pills" id="pills" aria-label="Game filters"></nav>
+      <input class="search" id="q" type="search" placeholder="Search games or genres..." aria-label="Search games">
+    </div>
+
+    <main class="grid" id="grid"></main>
   </div>
-  <div class="grid" id="grid"></div>
-</div>
-<script>
-var G=[
-["F1 25","Racing","p","Lights out, tires warm, one clean lap.","Pit strategy wins more than raw speed.",5],
-["FC 26/27","Sports","p","Late-night matches with the squad.","Never trust a 90th-minute lead.",130],
-["God of War","Action","p","A father, a son, and a very big axe.","Every fight feels heavy in the best way.",205],
-["Spider-Man: Remastered","Action","p","Swinging between skyscrapers never gets old.","Best traversal in any open city.",350],
-["GTA V","Open world","p","Three heroes, one huge sunny city.","Heists, chaos, and the radio on.",95],
-["GTA San Andreas","Open world","p","The classic that started a thousand road trips.","Still has the best map to wander.",30],
-["NBA 2k27","Sports","p","Run the court, build the player.","Clutch shots feel earned here.",20],
-["Tekken 7","Fighting","p","Combos, juggles, and trash talk.","Learn the frames, win the rounds.",275],
-["Tekken 8","Fighting","p","Faster, louder, more aggressive.","Heat mode changes every match.",315],
-["Need for Speed Heat","Racing","p","Race by day, risk it all at night.","Police chases that actually get tense.",185],
-["Need for Speed Most Wanted","Racing","p","The rival list that never left our heads.","Pure arcade street racing.",50],
-["Valorant","Shooter","p","Agents, abilities, and sharp aim.","One smart smoke can save a round.",350],
-["CrossFire","Shooter","p","Old-school shooter nights with friends.","Fast rounds, easy to jump into.",15],
-["Rules of Survival","Battle royale","p","Drop in, loot up, last one standing.","Mobile-sized chaos with real nerves.",150],
-["Counter Strike 2","Shooter","p","Clutch or kick, nothing in between.","Every spray pattern tells a story.",40],
-["Spider-Man 2","Action","w","Two Spider-Men and a bigger city.","Wing suit swinging is next on the list.",0],
-["The Last of Us Part I and II","Action","w","A story worth going in blind.","Prepare for a rough, brilliant ride.",100],
-["Forza Horizon 5/6","Racing","w","A festival of cars across gorgeous roads.","Drive anything, anywhere.",170],
-["God of War Ragnarok","Action","w","The next chapter after the Fimbulwinter.","Bring the family back together.",220],
-["Cyberpunk 2077","RPG","w","Neon streets and risky choices.","A city that rewards curiosity.",60],
-["Black Myth Wukong","Action","w","Monkey King mythology, boss after boss.","Looks unreal, plays tough.",25],
-["Elden Ring","RPG","w","Get lost, get humbled, try again.","The Lands Between are waiting.",45],
-["Red Dead Redemption I and II","Open world","w","Outlaws, horses, and a fading frontier.","Take the slow rides seriously.",15],
-["Arc Raiders","Shooter","w","Extraction shooter with big machines.","Loot smart, leave alive.",190],
-["Baldurs Gate I, II, III","RPG","w","Dice rolls decide your whole party.","Pick a class and start the saga.",260],
-["Wolverine","Action","w","Claws out, healing factor on.","Brutal, fast, and personal.",50],
-["Marvel's Avengers","Action","w","Assemble the team and smash things.","Co-op heroics for a rainy day.",340]
-];
-var cats=["All","In rotation","Wishlist","Racing","Action","Shooter","Sports","Fighting","RPG","Open world"];
-var cur="All",pills=document.getElementById("pills"),grid=document.getElementById("grid"),q=document.getElementById("q");
-function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
-function pass(g){
-  if(cur==="In rotation"&&g[2]!=="p")return false;
-  if(cur==="Wishlist"&&g[2]!=="w")return false;
-  if(cats.indexOf(cur)>2){var m=g[1].toLowerCase();var c=cur.toLowerCase();if(m!==c&&!(c==="shooter"&&m==="battle royale"))return false}
-  var s=q.value.toLowerCase();
-  return !s||(g[0]+" "+g[1]+" "+g[3]+" "+g[4]).toLowerCase().indexOf(s)>-1;
-}
-function draw(){
-  var h="";
-  G.forEach(function(g){
-    if(!pass(g))return;
-    var hu=g[5];
-    h+='<article class="card"><div class="art" data-i="'+esc(g[0].charAt(0))+'" style="background:linear-gradient(160deg,hsl('+hu+',75%,48%),hsl('+((hu+50)%360)+',70%,22%))">'
-      +'<span class="badge '+g[2]+'">'+(g[2]==="p"?"In rotation":"Wishlist")+'</span>'
-      +'<div class="t">'+esc(g[0])+'</div><div class="g">'+esc(g[1])+'</div></div>'
-      +'<div class="info"><h3>'+esc(g[0])+'</h3><p>"'+esc(g[3])+'"</p><p>"'+esc(g[4])+'"</p></div></article>';
-  });
-  grid.innerHTML=h||'<p class="none">No games match. Try a different filter or search.</p>';
-}
-cats.forEach(function(c){
-  var b=document.createElement("button");b.className="pill"+(c===cur?" on":"");b.textContent=c;
-  b.onclick=function(){cur=c;[].forEach.call(pills.children,function(x){x.classList.toggle("on",x===b)});draw()};
-  pills.appendChild(b);
-});
-q.addEventListener("input",draw);
-draw();
-</script>
+
+  <script>
+    const GAMES_DATA = [
+      { name: "F1 25", genre: "Racing", status: "p", quote1: "Lights out, tires warm, one clean lap.", quote2: "Pit strategy wins more than raw speed.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co83ee.webp", url: "https://store.steampowered.com/search/?term=F1" },
+      { name: "EA Sports FC 26", genre: "Sports", status: "p", quote1: "Late-night matches with the squad.", quote2: "Never trust a 90th-minute lead.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co820d.webp", url: "https://store.steampowered.com/search/?term=EA+Sports+FC" },
+      { name: "EA Sports FC 27", genre: "Sports", status: "p", quote1: "Next-gen tactical play.", quote2: "Building the ultimate club squad.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co820d.webp", url: "https://store.steampowered.com/search/?term=EA+Sports+FC" },
+      { name: "God of War", genre: "Action", status: "p", quote1: "A father, a son, and a very big axe.", quote2: "Every fight feels heavy in the best way.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1ur9.webp", url: "https://store.steampowered.com/app/1593500/God_of_War/" },
+      { name: "Spider-Man: Remastered", genre: "Action", status: "p", quote1: "Swinging between skyscrapers never gets old.", quote2: "Best traversal in any open city.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5089.webp", url: "https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/" },
+      { name: "GTA V", genre: "Open world", status: "p", quote1: "Three heroes, one huge sunny city.", quote2: "Heists, chaos, and the radio on.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", url: "https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/" },
+      { name: "GTA San Andreas", genre: "Open world", status: "p", quote1: "The classic that started a thousand road trips.", quote2: "Still has the best map to wander.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3vbd.webp", url: "https://store.steampowered.com/app/1547000/Grand_Theft_Auto_San_Andreas__The_Definitive_Edition/" },
+      { name: "NBA 2K27", genre: "Sports", status: "p", quote1: "Run the court, build the player.", quote2: "Clutch shots feel earned here.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co78v5.webp", url: "https://store.steampowered.com/search/?term=NBA+2K" },
+      { name: "Tekken 7", genre: "Fighting", status: "p", quote1: "Combos, juggles, and trash talk.", quote2: "Learn the frames, win the rounds.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1x76.webp", url: "https://store.steampowered.com/app/389730/TEKKEN_7/" },
+      { name: "Tekken 8", genre: "Fighting", status: "p", quote1: "Faster, louder, more aggressive.", quote2: "Heat mode changes every match.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7g45.webp", url: "https://store.steampowered.com/app/1778820/TEKKEN_8/" },
+      { name: "Need for Speed Heat", genre: "Racing", status: "p", quote1: "Race by day, risk it all at night.", quote2: "Police chases that actually get tense.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7k.webp", url: "https://store.steampowered.com/app/1222680/Need_for_Speed_Heat/" },
+      { name: "Need for Speed Most Wanted", genre: "Racing", status: "p", quote1: "The rival list that never left our heads.", quote2: "Pure arcade street racing.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2k13.webp", url: "https://store.steampowered.com/app/1262560/Need_for_Speed_Most_Wanted/" },
+      { name: "Valorant", genre: "Shooter", status: "p", quote1: "Agents, abilities, and sharp aim.", quote2: "One smart smoke can save a round.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2b9m.webp", url: "https://playvalorant.com/" },
+      { name: "CrossFire", genre: "Shooter", status: "p", quote1: "Old-school shooter nights with friends.", quote2: "Fast rounds, easy to jump into.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co38e9.webp", url: "https://crossfire.z8games.com/" },
+      { name: "Rules of Survival", genre: "Battle royale", status: "p", quote1: "Drop in, loot up, last one standing.", quote2: "Mobile-sized chaos with real nerves.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2s3k.webp", url: "https://store.steampowered.com/search/?term=Rules+of+Survival" },
+      { name: "Counter-Strike 2", genre: "Shooter", status: "p", quote1: "Clutch or kick, nothing in between.", quote2: "Every spray pattern tells a story.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6964.webp", url: "https://store.steampowered.com/app/730/CounterStrike_2/" },
+      { name: "Spider-Man 2", genre: "Action", status: "w", quote1: "Two Spider-Men and a bigger city.", quote2: "Web wings make traversal a dream.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co739y.webp", url: "https://store.playstation.com/en-us/concept/10002456" },
+      { name: "The Last of Us Part I", genre: "Action", status: "w", quote1: "An emotional journey across a fallen world.", quote2: "Unforgettable storytelling.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co59jl.webp", url: "https://store.steampowered.com/app/1888930/The_Last_of_Us_Part_I/" },
+      { name: "The Last of Us Part II", genre: "Action", status: "w", quote1: "A complex story of revenge and redemption.", quote2: "Visceral combat and raw emotion.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co23ju.webp", url: "https://store.playstation.com/en-us/product/UP9000-CUSA07820_00-THELASTOFUSPART2" },
+      { name: "Forza Horizon 5", genre: "Racing", status: "w", quote1: "A festival of cars across gorgeous Mexico.", quote2: "Drive anything, anywhere.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", url: "https://store.steampowered.com/app/1551360/Forza_Horizon_5/" },
+      { name: "Forza Horizon 6", genre: "Racing", status: "w", quote1: "Next-generation open world racing.", quote2: "Pushing speed to the limit.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", url: "https://store.steampowered.com/search/?term=Forza+Horizon" },
+      { name: "God of War Ragnarök", genre: "Action", status: "w", quote1: "The next chapter after the Fimbulwinter.", quote2: "Bring the family back together.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co59kb.webp", url: "https://store.steampowered.com/app/2322010/God_of_War_Ragnarok/" },
+      { name: "Cyberpunk 2077", genre: "RPG", status: "w", quote1: "Neon streets and risky choices.", quote2: "A city that rewards curiosity.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7f.webp", url: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/" },
+      { name: "Black Myth: Wukong", genre: "Action", status: "w", quote1: "Monkey King mythology, boss after boss.", quote2: "Looks unreal, plays tough.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co8993.webp", url: "https://store.steampowered.com/app/2358720/Black_Myth_Wukong/" },
+      { name: "Elden Ring", genre: "RPG", status: "w", quote1: "Get lost, get humbled, try again.", quote2: "The Lands Between are waiting.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp", url: "https://store.steampowered.com/app/1245620/ELDEN_RING/" },
+      { name: "Red Dead Redemption", genre: "Open world", status: "w", quote1: "The tragic tale of John Marston.", quote2: "A masterpiece of the American West.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2k3e.webp", url: "https://store.steampowered.com/app/2668510/Red_Dead_Redemption/" },
+      { name: "Red Dead Redemption II", genre: "Open world", status: "w", quote1: "Outlaws, horses, and a fading frontier.", quote2: "Take the slow rides seriously.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", url: "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/" },
+      { name: "Arc Raiders", genre: "Shooter", status: "w", quote1: "Extraction shooter with big machines.", quote2: "Loot smart, leave alive.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co488p.webp", url: "https://store.steampowered.com/app/1808500/ARC_Raiders/" },
+      { name: "Baldur's Gate", genre: "RPG", status: "w", quote1: "Where the iconic saga began.", quote2: "Gather your party before venturing forth.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co26lh.webp", url: "https://store.steampowered.com/app/22820/Baldurs_Gate_Enhanced_Edition/" },
+      { name: "Baldur's Gate II", genre: "RPG", status: "w", quote1: "Shadows of Amn and supreme storytelling.", quote2: "Classic tactical RPG combat.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co26m3.webp", url: "https://store.steampowered.com/app/257350/Baldurs_Gate_II_Enhanced_Edition/" },
+      { name: "Baldur's Gate III", genre: "RPG", status: "w", quote1: "Dice rolls decide your whole party.", quote2: "Pick a class and shape the world.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.webp", url: "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" },
+      { name: "Wolverine", genre: "Action", status: "w", quote1: "Claws out, healing factor on.", quote2: "Brutal, fast, and personal.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3v98.webp", url: "https://store.playstation.com/en-us/concept/10002456" },
+      { name: "Marvel's Avengers", genre: "Action", status: "w", quote1: "Assemble the team and smash things.", quote2: "Co-op heroics for a rainy day.", img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2ecg.webp", url: "https://store.steampowered.com/search/?term=Marvels+Avengers" }
+    ];
+
+    const CATEGORIES = ["All", "In rotation", "Wishlist", "Racing", "Action", "Shooter", "Sports", "Fighting", "RPG", "Open world"];
+
+    let currentCategory = "All";
+    const pillsContainer = document.getElementById("pills");
+    const gridContainer = document.getElementById("grid");
+    const searchInput = document.getElementById("q");
+
+    const escapeHTML = (str) => {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    };
+
+    const matchesFilter = (game) => {
+      if (currentCategory === "In rotation" && game.status !== "p") return false;
+      if (currentCategory === "Wishlist" && game.status !== "w") return false;
+
+      if (CATEGORIES.indexOf(currentCategory) > 2) {
+        const gameGenre = game.genre.toLowerCase();
+        const activeGenre = currentCategory.toLowerCase();
+        if (gameGenre !== activeGenre && !(activeGenre === "shooter" && gameGenre === "battle royale")) {
+          return false;
+        }
+      }
+
+      const searchQuery = searchInput.value.trim().toLowerCase();
+      if (!searchQuery) return true;
+
+      const searchableContent = `${game.name} ${game.genre} ${game.quote1} ${game.quote2}`.toLowerCase();
+      return searchableContent.includes(searchQuery);
+    };
+
+    const render = () => {
+      const filteredGames = GAMES_DATA.filter(matchesFilter);
+
+      if (filteredGames.length === 0) {
+        gridContainer.innerHTML = `<p class="none">No games match your search criteria. Try a different filter.</p>`;
+        return;
+      }
+
+      gridContainer.innerHTML = filteredGames.map(game => {
+        const statusLabel = game.status === "p" ? "In rotation" : "Wishlist";
+        const statusClass = game.status === "p" ? "rotation" : "wishlist";
+
+        return `
+          <a href="${game.url}" target="_blank" rel="noopener noreferrer" class="card" aria-label="View ${escapeHTML(game.name)} on store">
+            <div class="art-container">
+              <img class="art-image" src="${game.img}" alt="${escapeHTML(game.name)} cover art" loading="lazy">
+              <div class="art-overlay"></div>
+              <span class="badge ${statusClass}">${statusLabel}</span>
+              <span class="store-btn">Store ↗</span>
+              <div class="art-content">
+                <div class="title">${escapeHTML(game.name)}</div>
+                <div class="genre">${escapeHTML(game.genre)}</div>
+              </div>
+            </div>
+            <div class="info">
+              <p class="quote-primary">"${escapeHTML(game.quote1)}"</p>
+              <p>"${escapeHTML(game.quote2)}"</p>
+            </div>
+          </a>
+        `;
+      }).join('');
+    };
+
+    const initFilters = () => {
+      CATEGORIES.forEach(cat => {
+        const button = document.createElement("button");
+        button.className = `pill ${cat === currentCategory ? "active" : ""}`;
+        button.textContent = cat;
+
+        button.addEventListener("click", () => {
+          currentCategory = cat;
+          Array.from(pillsContainer.children).forEach(child => {
+            child.classList.toggle("active", child === button);
+          });
+          render();
+        });
+
+        pillsContainer.appendChild(button);
+      });
+    };
+
+    searchInput.addEventListener("input", render);
+
+    initFilters();
+    render();
+  </script>
 </body>
 </html>
