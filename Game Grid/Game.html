@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Favorite Games</title>
+<style>
+:root{--bg:#f5f4f7;--card:#fff;--line:#dcdae3;--ink:#16151c;--mute:#625f72;--pill:#ebe9f0;--a:#e0202e;--b:#d98a00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0b0b0e;--card:#131419;--line:#24252d;--ink:#f4f3f8;--mute:#9a98a8;--pill:#15161b;--a:#ff2d3d;--b:#ffb43c}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0b0b0e;--card:#131419;--line:#24252d;--ink:#f4f3f8;--mute:#9a98a8;--pill:#15161b;--a:#ff2d3d;--b:#ffb43c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 48px}
+h1{margin:0 0 24px;font-size:32px;font-weight:800;letter-spacing:-.5px}
+h1 span{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:28px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;flex:1}
+.pill{padding:8px 18px;border-radius:99px;border:1px solid var(--line);background:var(--pill);color:var(--mute);font:inherit;font-weight:700;cursor:pointer}
+.pill:hover{color:var(--ink)}
+.pill.on{background:var(--a);border-color:var(--a);color:#fff}
+.search{width:260px;max-width:100%;padding:10px 16px;border-radius:99px;border:1px solid var(--line);background:var(--pill);color:var(--ink);font:inherit}
+button:focus-visible,input:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--b)}
+.art{aspect-ratio:2/3;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;overflow:hidden;color:#fff}
+.art::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 25%,rgba(255,255,255,.35),transparent 45%),linear-gradient(to top,rgba(0,0,0,.75),transparent 60%)}
+.art::after{content:attr(data-i);position:absolute;top:-8px;right:-4px;font-size:120px;font-weight:900;line-height:1;opacity:.18}
+.art .t{position:relative;font-size:26px;font-weight:900;line-height:1.05;text-transform:uppercase;letter-spacing:-.5px;text-shadow:0 2px 12px rgba(0,0,0,.5);overflow-wrap:anywhere}
+.art .g{position:relative;margin-top:8px;font-size:13px;opacity:.85}
+.badge{position:absolute;z-index:1;top:12px;left:12px;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:800;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.badge.p{color:#ffd27a}.badge.w{color:#7ff0e4}
+.info{padding:14px 16px 18px}
+.info h3{margin:0 0 6px;font-size:15px}
+.info p{margin:4px 0;font-size:13px;font-style:italic;color:var(--mute)}
+.none{color:var(--mute);grid-column:1/-1}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Favorite <span>Games</span></h1>
+  <div class="bar">
+    <div class="pills" id="pills"></div>
+    <input class="search" id="q" type="search" placeholder="Search games or genres..." aria-label="Search games">
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+var G=[
+["F1 25","Racing","p","Lights out, tires warm, one clean lap.","Pit strategy wins more than raw speed.",5],
+["FC 26/27","Sports","p","Late-night matches with the squad.","Never trust a 90th-minute lead.",130],
+["God of War","Action","p","A father, a son, and a very big axe.","Every fight feels heavy in the best way.",205],
+["Spider-Man: Remastered","Action","p","Swinging between skyscrapers never gets old.","Best traversal in any open city.",350],
+["GTA V","Open world","p","Three heroes, one huge sunny city.","Heists, chaos, and the radio on.",95],
+["GTA San Andreas","Open world","p","The classic that started a thousand road trips.","Still has the best map to wander.",30],
+["NBA 2k27","Sports","p","Run the court, build the player.","Clutch shots feel earned here.",20],
+["Tekken 7","Fighting","p","Combos, juggles, and trash talk.","Learn the frames, win the rounds.",275],
+["Tekken 8","Fighting","p","Faster, louder, more aggressive.","Heat mode changes every match.",315],
+["Need for Speed Heat","Racing","p","Race by day, risk it all at night.","Police chases that actually get tense.",185],
+["Need for Speed Most Wanted","Racing","p","The rival list that never left our heads.","Pure arcade street racing.",50],
+["Valorant","Shooter","p","Agents, abilities, and sharp aim.","One smart smoke can save a round.",350],
+["CrossFire","Shooter","p","Old-school shooter nights with friends.","Fast rounds, easy to jump into.",15],
+["Rules of Survival","Battle royale","p","Drop in, loot up, last one standing.","Mobile-sized chaos with real nerves.",150],
+["Counter Strike 2","Shooter","p","Clutch or kick, nothing in between.","Every spray pattern tells a story.",40],
+["Spider-Man 2","Action","w","Two Spider-Men and a bigger city.","Wing suit swinging is next on the list.",0],
+["The Last of Us Part I and II","Action","w","A story worth going in blind.","Prepare for a rough, brilliant ride.",100],
+["Forza Horizon 5/6","Racing","w","A festival of cars across gorgeous roads.","Drive anything, anywhere.",170],
+["God of War Ragnarok","Action","w","The next chapter after the Fimbulwinter.","Bring the family back together.",220],
+["Cyberpunk 2077","RPG","w","Neon streets and risky choices.","A city that rewards curiosity.",60],
+["Black Myth Wukong","Action","w","Monkey King mythology, boss after boss.","Looks unreal, plays tough.",25],
+["Elden Ring","RPG","w","Get lost, get humbled, try again.","The Lands Between are waiting.",45],
+["Red Dead Redemption I and II","Open world","w","Outlaws, horses, and a fading frontier.","Take the slow rides seriously.",15],
+["Arc Raiders","Shooter","w","Extraction shooter with big machines.","Loot smart, leave alive.",190],
+["Baldurs Gate I, II, III","RPG","w","Dice rolls decide your whole party.","Pick a class and start the saga.",260],
+["Wolverine","Action","w","Claws out, healing factor on.","Brutal, fast, and personal.",50],
+["Marvel's Avengers","Action","w","Assemble the team and smash things.","Co-op heroics for a rainy day.",340]
+];
+var cats=["All","In rotation","Wishlist","Racing","Action","Shooter","Sports","Fighting","RPG","Open world"];
+var cur="All",pills=document.getElementById("pills"),grid=document.getElementById("grid"),q=document.getElementById("q");
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function pass(g){
+  if(cur==="In rotation"&&g[2]!=="p")return false;
+  if(cur==="Wishlist"&&g[2]!=="w")return false;
+  if(cats.indexOf(cur)>2){var m=g[1].toLowerCase();var c=cur.toLowerCase();if(m!==c&&!(c==="shooter"&&m==="battle royale"))return false}
+  var s=q.value.toLowerCase();
+  return !s||(g[0]+" "+g[1]+" "+g[3]+" "+g[4]).toLowerCase().indexOf(s)>-1;
+}
+function draw(){
+  var h="";
+  G.forEach(function(g){
+    if(!pass(g))return;
+    var hu=g[5];
+    h+='<article class="card"><div class="art" data-i="'+esc(g[0].charAt(0))+'" style="background:linear-gradient(160deg,hsl('+hu+',75%,48%),hsl('+((hu+50)%360)+',70%,22%))">'
+      +'<span class="badge '+g[2]+'">'+(g[2]==="p"?"In rotation":"Wishlist")+'</span>'
+      +'<div class="t">'+esc(g[0])+'</div><div class="g">'+esc(g[1])+'</div></div>'
+      +'<div class="info"><h3>'+esc(g[0])+'</h3><p>"'+esc(g[3])+'"</p><p>"'+esc(g[4])+'"</p></div></article>';
+  });
+  grid.innerHTML=h||'<p class="none">No games match. Try a different filter or search.</p>';
+}
+cats.forEach(function(c){
+  var b=document.createElement("button");b.className="pill"+(c===cur?" on":"");b.textContent=c;
+  b.onclick=function(){cur=c;[].forEach.call(pills.children,function(x){x.classList.toggle("on",x===b)});draw()};
+  pills.appendChild(b);
+});
+q.addEventListener("input",draw);
+draw();
+</script>
+</body>
+</html>
