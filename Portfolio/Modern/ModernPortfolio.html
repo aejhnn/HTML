@@ -1,491 +1,295 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aeirol John A. Gilo | Modern Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        marvelRed: '#E50914',
-                        ferrariRed: '#FF2800',
-                        darkBg: '#08090d',
-                        cardBg: '#11131c',
-                        cardBorder: '#1c202e',
-                        accentBlue: '#38bdf8',
-                        accentPurple: '#a855f7'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .glow-effect { box-shadow: 0 0 30px rgba(56, 189, 248, 0.12); }
-        .glow-red { box-shadow: 0 0 25px rgba(229, 9, 20, 0.25); }
-        .glow-ferrari { box-shadow: 0 0 25px rgba(255, 40, 0, 0.25); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aeirol John A. Gilo | Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ink:'#0b0b0f',card:'#14141b',line:'#24242f',red:'#ff2e3a',sun:'#ffd23f'}}}}
+</script>
+<style>
+  .grad{background:linear-gradient(90deg,#ff2e3a,#ffd23f);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .poster{aspect-ratio:2/3;background:#1b1b25}
+  .poster img{transition:transform .5s}
+  .card:hover .poster img{transform:scale(1.06)}
+  .hide{display:none!important}
+</style>
 </head>
-<body class="bg-darkBg text-gray-200 font-sans antialiased selection:bg-marvelRed selection:text-white">
+<body class="bg-ink text-gray-200 antialiased selection:bg-red selection:text-white">
 
-    <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-cardBorder">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#intro" class="flex items-center space-x-2">
-                <div class="bg-marvelRed text-white font-black px-3 py-1 rounded tracking-wider text-sm sm:text-base transform -skew-x-6 shadow-lg">
-                    PORTFOLIO
-                </div>
-            </a>
-            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-400">
-                <a href="#intro" class="hover:text-white transition">Intro</a>
-                <a href="#stack" class="hover:text-white transition">Tech Stack</a>
-                <a href="#movies" class="hover:text-white transition">Favorite Movies</a>
-                <a href="#f1" class="hover:text-white transition">Formula 1</a>
-                <a href="#birthday" class="hover:text-white transition">Birthday Invite</a>
-                <a href="#contact" class="hover:text-white transition">Contact</a>
-            </div>
-        </div>
-    </nav>
+<nav class="fixed top-0 inset-x-0 z-40 bg-ink/85 backdrop-blur border-b border-line">
+  <div class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
+    <a href="#top" class="font-black tracking-tight text-white">AG<span class="text-red">.</span></a>
+    <div class="hidden sm:flex gap-6 text-sm text-gray-400">
+      <a href="#stack" class="hover:text-white">Stack</a>
+      <a href="#movies" class="hover:text-white">Movies</a>
+      <a href="#f1" class="hover:text-white">F1</a>
+      <a href="#birthday" class="hover:text-white">Invite</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
+    </div>
+  </div>
+</nav>
 
-    <!-- MAIN CONTAINER -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 space-y-24">
+<main id="top" class="max-w-6xl mx-auto px-5 pt-14">
 
-        <!-- 01 // INTRODUCTION SECTION (SIMPLIFIED UI) -->
-        <section id="intro" class="relative pt-6">
-            <div class="text-xs font-mono tracking-widest text-accentPurple mb-6 uppercase flex items-center space-x-2">
-                <span class="text-accentBlue font-bold">01</span>
-                <span>— INTRODUCTION</span>
-            </div>
+  <!-- HERO -->
+  <section class="min-h-[88vh] flex flex-col justify-center">
+    <p class="text-sun font-mono text-xs tracking-widest uppercase mb-4">Hello, I'm</p>
+    <h1 class="text-5xl sm:text-7xl font-black tracking-tight text-white leading-[1.02]">
+      Aeirol John<br><span class="grad">A. Gilo</span>
+    </h1>
+    <p class="mt-5 text-lg text-gray-400 max-w-xl">2nd Year BS Computer Science student at NU Cebu. I build software, edit videos, and never miss a race weekend.</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#contact" class="bg-red hover:bg-red/90 text-white font-bold px-6 py-3 rounded-full transition">Get in touch</a>
+      <a href="#movies" class="border border-line hover:border-white text-white font-semibold px-6 py-3 rounded-full transition">My favorites</a>
+    </div>
+    <p class="mt-8 text-sm text-gray-500">📍 Cebu, Philippines</p>
+  </section>
 
-            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-10 glow-effect relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-96 h-96 bg-accentBlue/5 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- STACK -->
+  <section id="stack" class="py-16">
+    <h2 class="text-3xl font-black text-white mb-8">The <span class="grad">Stack</span></h2>
+    <div class="flex flex-wrap gap-3">
+      <span class="px-4 py-2 rounded-full bg-card border border-line hover:border-sun transition">C# &amp; .NET</span>
+      <span class="px-4 py-2 rounded-full bg-card border border-line hover:border-sun transition">Java</span>
+      <span class="px-4 py-2 rounded-full bg-card border border-line hover:border-sun transition">JavaScript</span>
+      <span class="px-4 py-2 rounded-full bg-card border border-line hover:border-sun transition">SQL</span>
+      <span class="px-4 py-2 rounded-full bg-card border border-line hover:border-sun transition">HTML / CSS</span>
+      <span class="px-4 py-2 rounded-full bg-card border border-line hover:border-sun transition">Git &amp; GitHub</span>
+      <span class="px-4 py-2 rounded-full bg-card border border-line hover:border-sun transition">VS Code</span>
+      <span class="px-4 py-2 rounded-full bg-card border border-line hover:border-sun transition">CapCut Desktop</span>
+    </div>
+  </section>
 
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <!-- Avatar / Initials badge -->
-                    <div class="relative group flex-shrink-0">
-                        <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl bg-gradient-to-tr from-accentBlue/20 via-marvelRed/20 to-accentPurple/20 border-2 border-accentBlue/40 flex items-center justify-center text-4xl font-black text-white shadow-2xl">
-                            AG
-                        </div>
-                        <div class="absolute -bottom-2 -right-2 bg-darkBg border border-cardBorder px-2.5 py-1 rounded-md text-[10px] font-mono text-accentBlue font-bold">
-                            NU CEBU
-                        </div>
-                    </div>
+  <!-- MOVIES -->
+  <section id="movies" class="py-16">
+    <h2 class="text-3xl font-black text-white mb-8">Favorite <span class="grad">Movies</span></h2>
 
-                    <!-- Simplified Bio & Quick Stats -->
-                    <div class="space-y-4 text-center md:text-left flex-grow">
-                        <div>
-                            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
-                                Aeirol John A. Gilo
-                            </h1>
-                            <p class="text-accentBlue font-semibold text-base sm:text-lg mt-1">
-                                2nd Year College — BS Computer Science
-                            </p>
-                        </div>
-
-                        <!-- Location & Email badges -->
-                        <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-1">
-                            <span class="bg-darkBg border border-cardBorder px-3 py-1 rounded-lg text-xs text-gray-300 flex items-center space-x-1.5">
-                                <svg class="w-3.5 h-3.5 text-accentPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                <span>Cebu, Philippines</span>
-                            </span>
-                            <span class="bg-darkBg border border-cardBorder px-3 py-1 rounded-lg text-xs text-accentBlue font-mono">
-                                giloaeiroljohn29@gmail.com
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 02 // TECH STACK SECTION -->
-        <section id="stack" class="space-y-6">
-            <div class="text-xs font-mono tracking-widest text-accentPurple uppercase flex items-center space-x-2">
-                <span class="text-accentBlue font-bold">02</span>
-                <span>— THE STACK</span>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <div class="bg-cardBg border border-cardBorder p-4 rounded-xl text-center hover:border-accentBlue/50 transition">
-                    <div class="text-accentBlue font-bold text-lg">C# & .NET</div>
-                    <div class="text-xs text-gray-500 mt-1">Software Development</div>
-                </div>
-                <div class="bg-cardBg border border-cardBorder p-4 rounded-xl text-center hover:border-accentBlue/50 transition">
-                    <div class="text-accentBlue font-bold text-lg">Java</div>
-                    <div class="text-xs text-gray-500 mt-1">OOP & Data Structures</div>
-                </div>
-                <div class="bg-cardBg border border-cardBorder p-4 rounded-xl text-center hover:border-accentBlue/50 transition">
-                    <div class="text-accentBlue font-bold text-lg">JavaScript</div>
-                    <div class="text-xs text-gray-500 mt-1">Web Development</div>
-                </div>
-                <div class="bg-cardBg border border-cardBorder p-4 rounded-xl text-center hover:border-accentBlue/50 transition">
-                    <div class="text-accentBlue font-bold text-lg">SQL</div>
-                    <div class="text-xs text-gray-500 mt-1">Database Queries</div>
-                </div>
-                <div class="bg-cardBg border border-cardBorder p-4 rounded-xl text-center hover:border-accentBlue/50 transition">
-                    <div class="text-accentBlue font-bold text-lg">HTML / CSS</div>
-                    <div class="text-xs text-gray-500 mt-1">Frontend Layouts</div>
-                </div>
-                <div class="bg-cardBg border border-cardBorder p-4 rounded-xl text-center hover:border-accentBlue/50 transition">
-                    <div class="text-accentBlue font-bold text-lg">Git & GitHub</div>
-                    <div class="text-xs text-gray-500 mt-1">Version Control</div>
-                </div>
-                <div class="bg-cardBg border border-cardBorder p-4 rounded-xl text-center hover:border-accentBlue/50 transition">
-                    <div class="text-accentBlue font-bold text-lg">VS Code</div>
-                    <div class="text-xs text-gray-500 mt-1">Primary Environment</div>
-                </div>
-                <div class="bg-cardBg border border-cardBorder p-4 rounded-xl text-center hover:border-accentBlue/50 transition">
-                    <div class="text-accentBlue font-bold text-lg">CapCut Desktop</div>
-                    <div class="text-xs text-gray-500 mt-1">Video Editing & Grading</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 03 // FAVORITE MOVIES SECTION -->
-        <section id="movies" class="space-y-6">
-            <div class="text-xs font-mono tracking-widest text-marvelRed uppercase flex items-center space-x-2">
-                <span class="text-white font-bold">03</span>
-                <span>— FAVORITE MOVIES</span>
-            </div>
-
-            <!-- Category Filter Buttons & Search -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-cardBg border border-cardBorder p-4 rounded-xl">
-                <div class="flex flex-wrap gap-2" id="filterContainer">
-                    <button onclick="filterMovies('all')" class="filter-btn active bg-marvelRed text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">All</button>
-                    <button onclick="filterMovies('marvel')" class="filter-btn bg-darkBg border border-cardBorder hover:border-marvelRed text-gray-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">Marvel</button>
-                    <button onclick="filterMovies('action')" class="filter-btn bg-darkBg border border-cardBorder hover:border-marvelRed text-gray-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">Action</button>
-                    <button onclick="filterMovies('racing')" class="filter-btn bg-darkBg border border-cardBorder hover:border-marvelRed text-gray-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">Racing</button>
-                </div>
-
-                <input type="text" id="movieSearch" onkeyup="searchMovies()" placeholder="Search movies or quotes..." class="bg-darkBg border border-cardBorder px-3.5 py-1.5 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-marvelRed w-full md:w-64">
-            </div>
-
-            <!-- Movies Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="moviesGrid">
-                
-                <!-- Marvel Movies -->
-                <div class="movie-card marvel bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-marvelRed/50 transition group">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTugFdcHZV48iT269DwhLx5K0QFTDM0kPQ_Irx8kgC1vw&s=10" alt="Avengers: Infinity War" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-white">Avengers: Infinity War</h3>
-                            <span class="text-[10px] font-mono bg-marvelRed/20 text-marvelRed px-2 py-0.5 rounded border border-marvelRed/30">Marvel</span>
-                        </div>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"I assure you, brother... the sun will shine on us again."</blockquote>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"I'll do you one better, WHY IS GAMORA?"</blockquote>
-                    </div>
-                </div>
-
-                <div class="movie-card marvel bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-marvelRed/50 transition group">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" alt="Avengers: Endgame" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-white">Avengers: Endgame</h3>
-                            <span class="text-[10px] font-mono bg-marvelRed/20 text-marvelRed px-2 py-0.5 rounded border border-marvelRed/30">Marvel</span>
-                        </div>
-                        <p class="text-xs text-marvelRed font-mono">NoobMaster69</p>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"On your left."</blockquote>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"And I... am... Iron Man"</blockquote>
-                    </div>
-                </div>
-
-                <div class="movie-card marvel bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-marvelRed/50 transition group">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Captain_America_Civil_War_poster.jpg" alt="Captain America: Civil War" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-white">Captain America: Civil War</h3>
-                            <span class="text-[10px] font-mono bg-marvelRed/20 text-marvelRed px-2 py-0.5 rounded border border-marvelRed/30">Marvel</span>
-                        </div>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"Underoos!"</blockquote>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"He's my friend." "So was I."</blockquote>
-                    </div>
-                </div>
-
-                <div class="movie-card marvel bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-marvelRed/50 transition group">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPt_dPTEs6RHOp73cI62Gz8fG8VdK83fZQYxLyKg7VyA&s=10" alt="Spider-Man: No Way Home" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-white">Spider-Man: No Way Home</h3>
-                            <span class="text-[10px] font-mono bg-marvelRed/20 text-marvelRed px-2 py-0.5 rounded border border-marvelRed/30">Marvel</span>
-                        </div>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"I love you guys!"</blockquote>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"Can the Spider-Man come out and play?"</blockquote>
-                    </div>
-                </div>
-
-                <div class="movie-card marvel bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-marvelRed/50 transition group">
-                    <img src="https://i.redd.it/trnq1wrzdu7h1.jpg" alt="Spider-Man: Brand New Day" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-white">Spider-Man: Brand New Day</h3>
-                            <span class="text-[10px] font-mono bg-marvelRed/20 text-marvelRed px-2 py-0.5 rounded border border-marvelRed/30">Marvel</span>
-                        </div>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"V-Max"</blockquote>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"No Banner, only Hulk"</blockquote>
-                    </div>
-                </div>
-
-                <!-- Racing Movies -->
-                <div class="movie-card racing action bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-marvelRed/50 transition group">
-                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7" alt="The Fast and the Furious: Tokyo Drift" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-white">Fast & Furious: Tokyo Drift</h3>
-                            <span class="text-[10px] font-mono bg-marvelRed/20 text-marvelRed px-2 py-0.5 rounded border border-marvelRed/30">Racing</span>
-                        </div>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-marvelRed pl-3">"Life's simple. You make choices and you don't look back." — Han</blockquote>
-                    </div>
-                </div>
-
-                <!-- Action Movie -->
-                <div class="movie-card action bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-accentBlue/50 transition group">
-                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba" alt="Dunkirk" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-white">Dunkirk</h3>
-                            <span class="text-[10px] font-mono bg-accentBlue/20 text-accentBlue px-2 py-0.5 rounded border border-accentBlue/30">Action</span>
-                        </div>
-                        <blockquote class="text-xs text-gray-400 italic border-l-2 border-accentBlue pl-3">"We shall fight on the beaches... we shall never surrender."</blockquote>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 04 // FORMULA 1 FEATURE SECTION -->
-        <section id="f1" class="space-y-6">
-            <div class="text-xs font-mono tracking-widest text-ferrariRed uppercase flex items-center space-x-2">
-                <span class="text-white font-bold">04</span>
-                <span>— FORMULA 1 & MOTORSPORT PASSION</span>
-            </div>
-
-            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 glow-ferrari relative overflow-hidden">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <div class="lg:col-span-7 space-y-4">
-                        <div class="inline-flex items-center space-x-2 bg-ferrariRed/20 border border-ferrariRed/40 text-ferrariRed px-3 py-1 rounded-full text-xs font-bold uppercase font-mono">
-                            <span>Scuderia Ferrari & Sir Lewis Hamilton</span>
-                        </div>
-
-                        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
-                            FORZA FERRARI 🏎️🏁
-                        </h2>
-
-                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                            A huge fan of high-speed motorsport engineering, precision strategies, and tactical racing. Proudly supporting <strong>Sir Lewis Hamilton (#44)</strong> and <strong>Scuderia Ferrari</strong> in Formula 1.
-                        </p>
-
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                            <div class="bg-darkBg p-3 rounded-xl border border-cardBorder">
-                                <div class="text-xs text-gray-500 font-mono">DRIVER</div>
-                                <div class="text-sm font-bold text-white mt-0.5">Lewis Hamilton</div>
-                            </div>
-                            <div class="bg-darkBg p-3 rounded-xl border border-cardBorder">
-                                <div class="text-xs text-gray-500 font-mono">TEAM</div>
-                                <div class="text-sm font-bold text-ferrariRed mt-0.5">Scuderia Ferrari</div>
-                            </div>
-                            <div class="bg-darkBg p-3 rounded-xl border border-cardBorder col-span-2 sm:col-span-1">
-                                <div class="text-xs text-gray-500 font-mono">CAR ERA</div>
-                                <div class="text-sm font-bold text-white mt-0.5">SF-24 / 2026+</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-5">
-                        <div class="rounded-xl overflow-hidden border border-ferrariRed/30 shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7" alt="Ferrari F1 Racing" class="w-full h-56 object-cover">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 05 // BIRTHDAY INVITE & CLICKABLE WISHLIST -->
-        <section id="birthday" class="space-y-6">
-            <div class="text-xs font-mono tracking-widest text-accentPurple uppercase flex items-center space-x-2">
-                <span class="text-accentBlue font-bold">05</span>
-                <span>— BIRTHDAY INVITE PROJECT</span>
-            </div>
-
-            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="flex flex-col md:flex-row gap-6 items-center">
-                    <img src="https://cdn.britannica.com/93/238093-050-9B6CA8A5/decorated-cake-candles-gifts.jpg" alt="Birthday Cake" class="w-full md:w-64 h-48 object-cover rounded-xl border border-cardBorder">
-                    <div class="space-y-3 text-center md:text-left">
-                        <h2 class="text-2xl sm:text-3xl font-black text-white">HEY THERE! YOU ARE INVITED!</h2>
-                        <div class="inline-block bg-marvelRed text-white font-bold px-4 py-1 rounded-full text-sm">
-                            MAY 29, 2027 — SAVE THE DATE!
-                        </div>
-                        <p class="text-sm text-gray-400">Join me in celebrating my birthday party!</p>
-                        <a href="https://maps.app.goo.gl/z4BoUSA8rgJiTnSj7" target="_blank" class="inline-flex items-center space-x-2 text-accentBlue hover:underline text-sm font-semibold">
-                            <span>View Location on Google Maps</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Clickable Wishlist Items -->
-                <div>
-                    <h3 class="text-sm font-mono uppercase text-gray-400 mb-1">Wishlist Items:</h3>
-                    <p class="text-xs text-accentBlue mb-3">💡 Click on any item below to view image preview</p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-sm text-gray-300">
-                        <button onclick="openModal('iPhone 18 Pro Max', 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9')" class="bg-darkBg hover:bg-cardBorder/50 text-left p-3 rounded-lg border border-cardBorder transition hover:border-accentBlue text-xs sm:text-sm font-medium flex items-center justify-between group">
-                            <span>iPhone 18 1TB PROMAX</span>
-                            <span class="text-xs text-accentBlue opacity-0 group-hover:opacity-100 transition">View 👁️</span>
-                        </button>
-
-                        <button onclick="openModal('GeForce RTX 5090', 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7')" class="bg-darkBg hover:bg-cardBorder/50 text-left p-3 rounded-lg border border-cardBorder transition hover:border-accentBlue text-xs sm:text-sm font-medium flex items-center justify-between group">
-                            <span>GeForce RTX 5090</span>
-                            <span class="text-xs text-accentBlue opacity-0 group-hover:opacity-100 transition">View 👁️</span>
-                        </button>
-
-                        <button onclick="openModal('G.Skill Trident Z5 RAM', 'https://images.unsplash.com/photo-1562976540-1502c2145186')" class="bg-darkBg hover:bg-cardBorder/50 text-left p-3 rounded-lg border border-cardBorder transition hover:border-accentBlue text-xs sm:text-sm font-medium flex items-center justify-between group">
-                            <span>G.Skill Trident Z5 RAM</span>
-                            <span class="text-xs text-accentBlue opacity-0 group-hover:opacity-100 transition">View 👁️</span>
-                        </button>
-
-                        <button onclick="openModal('MacBook Pro', 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8')" class="bg-darkBg hover:bg-cardBorder/50 text-left p-3 rounded-lg border border-cardBorder transition hover:border-accentBlue text-xs sm:text-sm font-medium flex items-center justify-between group">
-                            <span>MacBook Pro</span>
-                            <span class="text-xs text-accentBlue opacity-0 group-hover:opacity-100 transition">View 👁️</span>
-                        </button>
-
-                        <button onclick="openModal('Ferrari 2026 Team Kit', 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7')" class="bg-darkBg hover:bg-cardBorder/50 text-left p-3 rounded-lg border border-cardBorder transition hover:border-ferrariRed text-xs sm:text-sm font-medium flex items-center justify-between group">
-                            <span>Ferrari 2026 Team Kit</span>
-                            <span class="text-xs text-ferrariRed opacity-0 group-hover:opacity-100 transition">View 👁️</span>
-                        </button>
-
-                        <button onclick="openModal('Real Madrid 2026 Team Kit', 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2')" class="bg-darkBg hover:bg-cardBorder/50 text-left p-3 rounded-lg border border-cardBorder transition hover:border-accentBlue text-xs sm:text-sm font-medium flex items-center justify-between group">
-                            <span>Real Madrid 2026 Team Kit</span>
-                            <span class="text-xs text-accentBlue opacity-0 group-hover:opacity-100 transition">View 👁️</span>
-                        </button>
-
-                        <button onclick="openModal('Snow Cheese 24 Chicken', 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec')" class="bg-darkBg hover:bg-cardBorder/50 text-left p-3 rounded-lg border border-cardBorder transition hover:border-accentBlue text-xs sm:text-sm font-medium flex items-center justify-between group">
-                            <span>Snow Cheese from 24 Chicken</span>
-                            <span class="text-xs text-accentBlue opacity-0 group-hover:opacity-100 transition">View 👁️</span>
-                        </button>
-
-                        <button onclick="openModal('Coke Diet / Zero', 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97')" class="bg-darkBg hover:bg-cardBorder/50 text-left p-3 rounded-lg border border-cardBorder transition hover:border-accentBlue text-xs sm:text-sm font-medium flex items-center justify-between group">
-                            <span>Coke Diet / Coke Zero</span>
-                            <span class="text-xs text-accentBlue opacity-0 group-hover:opacity-100 transition">View 👁️</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 06 // CONTACT SECTION -->
-        <section id="contact" class="space-y-6">
-            <div class="text-xs font-mono tracking-widest text-accentPurple uppercase flex items-center space-x-2">
-                <span class="text-accentBlue font-bold">06</span>
-                <span>— FOR MORE INQUIRIES</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-cardBg border border-cardBorder p-5 rounded-xl space-y-1">
-                    <span class="text-[10px] font-mono text-gray-500 uppercase">MOBILE NUMBER</span>
-                    <div class="text-sm font-bold text-white">+63 998 180 7142 <span class="text-xs text-gray-400 font-normal">| Smart</span></div>
-                </div>
-
-                <div class="bg-cardBg border border-cardBorder p-5 rounded-xl space-y-1">
-                    <span class="text-[10px] font-mono text-gray-500 uppercase">LINKEDIN</span>
-                    <div class="text-sm font-bold text-white">Aeirol John A. Gilo</div>
-                </div>
-
-                <div class="bg-cardBg border border-cardBorder p-5 rounded-xl space-y-1">
-                    <span class="text-[10px] font-mono text-gray-500 uppercase">GITHUB</span>
-                    <div class="text-sm font-bold text-accentBlue">aejhnn</div>
-                </div>
-
-                <div class="bg-cardBg border border-cardBorder p-5 rounded-xl space-y-1">
-                    <span class="text-[10px] font-mono text-gray-500 uppercase">SCHOOL EMAIL</span>
-                    <div class="text-sm font-bold text-white truncate">giloaa@students.nu-cebu.edu.ph</div>
-                </div>
-
-                <div class="bg-cardBg border border-cardBorder p-5 rounded-xl space-y-1">
-                    <span class="text-[10px] font-mono text-gray-500 uppercase">PERSONAL EMAIL</span>
-                    <div class="text-sm font-bold text-accentBlue truncate">giloaeiroljohn29@gmail.com</div>
-                </div>
-
-                <div class="bg-cardBg border border-cardBorder p-5 rounded-xl space-y-1">
-                    <span class="text-[10px] font-mono text-gray-500 uppercase">ADDRESS</span>
-                    <div class="text-sm font-bold text-white">Sunset Drive Ext. Lahug Cebu City</div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- IMAGE PREVIEW MODAL FOR WISHLIST -->
-    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeModal()">
-        <div class="bg-cardBg border border-cardBorder max-w-lg w-full rounded-2xl p-5 space-y-4 relative" onclick="event.stopPropagation()">
-            <div class="flex items-center justify-between border-b border-cardBorder pb-3">
-                <h3 id="modalTitle" class="text-lg font-bold text-white">Item Preview</h3>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
-            </div>
-            <div class="rounded-xl overflow-hidden bg-darkBg border border-cardBorder">
-                <img id="modalImage" src="" alt="Wishlist Preview" class="w-full h-64 object-cover">
-            </div>
-            <div class="text-right">
-                <button onclick="closeModal()" class="bg-accentBlue text-darkBg font-bold px-4 py-1.5 rounded-lg text-xs hover:bg-accentBlue/80 transition">Close</button>
-            </div>
-        </div>
+    <div class="flex flex-col md:flex-row gap-3 md:items-center justify-between mb-8">
+      <div class="flex flex-wrap gap-2">
+        <button class="fbtn bg-red text-white px-4 py-1.5 rounded-full text-sm font-semibold" data-f="all">All</button>
+        <button class="fbtn bg-card border border-line text-gray-300 px-4 py-1.5 rounded-full text-sm font-semibold" data-f="marvel">Marvel</button>
+        <button class="fbtn bg-card border border-line text-gray-300 px-4 py-1.5 rounded-full text-sm font-semibold" data-f="action">Action</button>
+        <button class="fbtn bg-card border border-line text-gray-300 px-4 py-1.5 rounded-full text-sm font-semibold" data-f="racing">Racing</button>
+      </div>
+      <input id="q" placeholder="Search movies or quotes..." class="bg-card border border-line rounded-full px-4 py-2 text-sm w-full md:w-64 focus:outline-none focus:border-red">
     </div>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-cardBorder py-8 text-center text-xs text-gray-500 font-mono">
-        &copy; 2026 Aeirol John A. Gilo. All rights reserved.
-    </footer>
+    <div id="grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
 
-    <!-- INTERACTIVE SCRIPTS -->
-    <script>
-        function filterMovies(category) {
-            const cards = document.querySelectorAll('.movie-card');
-            const buttons = document.querySelectorAll('.filter-btn');
+      <article class="movie card marvel bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="poster overflow-hidden"><img data-wiki="Avengers: Infinity War" alt="Avengers: Infinity War poster" class="w-full h-full object-cover"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-bold text-white text-sm">Avengers: Infinity War</h3>
+          <p class="text-xs text-gray-400 italic">"I assure you, brother... the sun will shine on us again."</p>
+          <p class="text-xs text-gray-400 italic">"I'll do you one better, WHY IS GAMORA?"</p>
+        </div>
+      </article>
 
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-marvelRed', 'text-white');
-                btn.classList.add('bg-darkBg', 'text-gray-300', 'border', 'border-cardBorder');
-            });
+      <article class="movie card marvel bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="poster overflow-hidden"><img data-wiki="Avengers: Endgame" alt="Avengers: Endgame poster" class="w-full h-full object-cover"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-bold text-white text-sm">Avengers: Endgame</h3>
+          <p class="text-xs text-red font-mono">NoobMaster69</p>
+          <p class="text-xs text-gray-400 italic">"On your left."</p>
+          <p class="text-xs text-gray-400 italic">"And I... am... Iron Man"</p>
+        </div>
+      </article>
 
-            event.target.classList.remove('bg-darkBg', 'text-gray-300', 'border', 'border-cardBorder');
-            event.target.classList.add('bg-marvelRed', 'text-white');
+      <article class="movie card marvel bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="poster overflow-hidden"><img data-wiki="Captain America: Civil War" alt="Captain America: Civil War poster" class="w-full h-full object-cover"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-bold text-white text-sm">Captain America: Civil War</h3>
+          <p class="text-xs text-gray-400 italic">"Underoos!"</p>
+          <p class="text-xs text-gray-400 italic">"He's my friend." "So was I."</p>
+        </div>
+      </article>
 
-            cards.forEach(card => {
-                if (category === 'all' || card.classList.contains(category)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+      <article class="movie card marvel bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="poster overflow-hidden"><img data-wiki="Spider-Man: No Way Home" alt="Spider-Man: No Way Home poster" class="w-full h-full object-cover"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-bold text-white text-sm">Spider-Man: No Way Home</h3>
+          <p class="text-xs text-gray-400 italic">"I love you guys!"</p>
+          <p class="text-xs text-gray-400 italic">"Can the Spider-Man come out and play?"</p>
+        </div>
+      </article>
 
-        function searchMovies() {
-            const input = document.getElementById('movieSearch').value.toLowerCase();
-            const cards = document.querySelectorAll('.movie-card');
+      <article class="movie card marvel bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="poster overflow-hidden"><img data-wiki="Spider-Man: Brand New Day" alt="Spider-Man: Brand New Day poster" class="w-full h-full object-cover"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-bold text-white text-sm">Spider-Man: Brand New Day</h3>
+          <p class="text-xs text-gray-400 italic">"V-Max"</p>
+          <p class="text-xs text-gray-400 italic">"No Banner, only Hulk"</p>
+        </div>
+      </article>
 
-            cards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                if (text.includes(input)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+      <article class="movie card racing action bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="poster overflow-hidden"><img data-wiki="The Fast and the Furious: Tokyo Drift" alt="Tokyo Drift poster" class="w-full h-full object-cover"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-bold text-white text-sm">Fast &amp; Furious: Tokyo Drift</h3>
+          <p class="text-xs text-gray-400 italic">"Life's simple. You make choices and you don't look back." — Han</p>
+        </div>
+      </article>
 
-        function openModal(title, imageUrl) {
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalImage').src = imageUrl;
-            document.getElementById('imageModal').classList.remove('hidden');
-        }
+      <article class="movie card action bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="poster overflow-hidden"><img data-wiki="Dunkirk (2017 film)" alt="Dunkirk poster" class="w-full h-full object-cover"></div>
+        <div class="p-4 space-y-2">
+          <h3 class="font-bold text-white text-sm">Dunkirk</h3>
+          <p class="text-xs text-gray-400 italic">"We shall fight on the beaches... we shall never surrender."</p>
+        </div>
+      </article>
+    </div>
+    <p id="none" class="hide text-center text-gray-500 py-10">No movies found.</p>
+  </section>
 
-        function closeModal() {
-            document.getElementById('imageModal').classList.add('hidden');
-        }
-    </script>
+  <!-- F1 -->
+  <section id="f1" class="py-16">
+    <h2 class="text-3xl font-black text-white mb-2">Forza <span class="text-red">Ferrari</span> 🏎️🏁</h2>
+    <p class="text-gray-400 max-w-2xl mb-8">A huge fan of high-speed engineering and tactical racing. Proudly supporting <strong class="text-white">Sir Lewis Hamilton (#44)</strong> and <strong class="text-white">Scuderia Ferrari</strong>.</p>
 
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <figure class="card bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="overflow-hidden h-72 bg-[#1b1b25]"><img data-wiki="Scuderia Ferrari|Scuderia Ferrari F1 team|Ferrari Formula 1 team" alt="Scuderia Ferrari" class="w-full h-full object-cover"></div>
+        <figcaption class="p-4"><div class="text-xs font-mono text-gray-500">TEAM</div><div class="font-bold text-red">Scuderia Ferrari</div></figcaption>
+      </figure>
+      <figure class="card bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="overflow-hidden h-72 bg-[#1b1b25]"><img data-wiki="Ferrari SF-26|Ferrari SF-26 Formula 1 car|Ferrari SF-25 Formula 1 car" alt="Ferrari SF-26" class="w-full h-full object-cover"></div>
+        <figcaption class="p-4"><div class="text-xs font-mono text-gray-500">CAR</div><div class="font-bold text-white">Ferrari SF-26</div></figcaption>
+      </figure>
+      <figure class="card bg-card border border-line rounded-2xl overflow-hidden">
+        <div class="overflow-hidden h-72 bg-[#1b1b25]"><img data-wiki="Lewis Hamilton|Lewis Hamilton Ferrari|Lewis Hamilton F1 driver" alt="Lewis Hamilton" class="w-full h-full object-cover object-top"></div>
+        <figcaption class="p-4"><div class="text-xs font-mono text-gray-500">DRIVER</div><div class="font-bold text-white">Lewis Hamilton #44</div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- BIRTHDAY -->
+  <section id="birthday" class="py-16">
+    <div class="rounded-3xl border border-line bg-gradient-to-br from-card to-[#1d1420] p-8 sm:p-12">
+      <p class="text-sun font-mono text-xs tracking-widest uppercase mb-3">You're invited 🎉</p>
+      <h2 class="text-4xl sm:text-5xl font-black text-white">Join my birthday party!</h2>
+      <div class="inline-block mt-4 bg-red text-white font-bold px-5 py-1.5 rounded-full text-sm">MAY 29, 2027 — SAVE THE DATE</div>
+      <div class="mt-3">
+        <a href="https://maps.app.goo.gl/z4BoUSA8rgJiTnSj7" target="_blank" rel="noopener" class="text-sun hover:underline text-sm font-semibold">📍 View location on Google Maps ↗</a>
+      </div>
+
+      <h3 class="mt-10 mb-1 text-sm font-mono uppercase text-gray-400">Wishlist</h3>
+      <p class="text-xs text-gray-500 mb-4">Tap an item to preview it.</p>
+      <div id="wish" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16">
+    <h2 class="text-3xl font-black text-white mb-8">Let's <span class="grad">Connect</span></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-card border border-line rounded-xl p-5"><div class="text-[10px] font-mono text-gray-500">MOBILE</div><div class="font-bold text-white">+63 998 180 7142 <span class="text-xs text-gray-500 font-normal">| Smart</span></div></div>
+      <div class="bg-card border border-line rounded-xl p-5"><div class="text-[10px] font-mono text-gray-500">LINKEDIN</div><div class="font-bold text-white">Aeirol John A. Gilo</div></div>
+      <div class="bg-card border border-line rounded-xl p-5"><div class="text-[10px] font-mono text-gray-500">GITHUB</div><div class="font-bold text-sun">aejhnn</div></div>
+      <div class="bg-card border border-line rounded-xl p-5"><div class="text-[10px] font-mono text-gray-500">SCHOOL EMAIL</div><div class="font-bold text-white truncate">giloaa@students.nu-cebu.edu.ph</div></div>
+      <div class="bg-card border border-line rounded-xl p-5"><div class="text-[10px] font-mono text-gray-500">PERSONAL EMAIL</div><div class="font-bold text-sun truncate">giloaeiroljohn29@gmail.com</div></div>
+      <div class="bg-card border border-line rounded-xl p-5"><div class="text-[10px] font-mono text-gray-500">ADDRESS</div><div class="font-bold text-white">Sunset Drive Ext. Lahug, Cebu City</div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line py-8 text-center text-xs text-gray-500 font-mono">&copy; 2026 Aeirol John A. Gilo</footer>
+
+<!-- MODAL -->
+<div id="modal" class="hide fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="bg-card border border-line rounded-2xl max-w-lg w-full p-5 space-y-4">
+    <div class="flex items-center justify-between">
+      <h3 id="mt" class="text-lg font-bold text-white"></h3>
+      <button id="mx" class="text-2xl text-gray-400 hover:text-white leading-none">&times;</button>
+    </div>
+    <div class="rounded-xl bg-ink border border-line h-72 flex items-center justify-center overflow-hidden">
+      <img id="mi" alt="" class="hide max-h-full max-w-full object-contain">
+      <div id="mf" class="text-center text-gray-400 text-sm px-4"><div id="me" class="text-6xl mb-2">🖼️</div><span id="ms">Loading...</span></div>
+    </div>
+    <a id="ml" target="_blank" rel="noopener" class="text-xs text-sun hover:underline">Search more photos ↗</a>
+  </div>
+</div>
+
+<script>
+const API='https://en.wikipedia.org/api/rest_v1/page/summary/';
+const cache={};
+// Source 1: Wikipedia article image (exact title)
+const wiki=async t=>{try{const d=await (await fetch(API+encodeURIComponent(t.replace(/ /g,'_')))).json();return [d.thumbnail&&d.thumbnail.source,d.originalimage&&d.originalimage.source].filter(Boolean)}catch(e){return[]}};
+// Source 2: Wikimedia Commons image search
+const commons=async q=>{try{const u='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrnamespace=6&gsrlimit=6&gsrsearch='+encodeURIComponent(q)+'&prop=imageinfo&iiprop=url|mime&iiurlwidth=500';const d=await (await fetch(u)).json();return Object.values(d.query&&d.query.pages||{}).sort((a,b)=>a.index-b.index).map(p=>p.imageinfo&&p.imageinfo[0]).filter(i=>i&&/^image\/(jpeg|png|webp|svg)/.test(i.mime)).map(i=>i.thumburl||i.url)}catch(e){return[]}};
+// Source 3: Openverse (Flickr and other open photos)
+const openverse=async q=>{try{const d=await (await fetch('https://api.openverse.org/v1/images/?page_size=6&q='+encodeURIComponent(q))).json();return (d.results||[]).map(x=>x.thumbnail||x.url)}catch(e){return[]}};
+const test=u=>new Promise(r=>{const i=new Image();i.onload=()=>r(true);i.onerror=()=>r(false);i.src=u});
+// Tries each search phrase on each source; returns the first URL that really loads
+async function find(queries){
+  const key=queries.join('|');
+  if(cache[key]!==undefined) return cache[key];
+  for(const q of queries) for(const src of [wiki,commons,openverse]) for(const u of await src(q)) if(await test(u)) return cache[key]=u;
+  return cache[key]=null;
+}
+
+// Load posters / photos by name (data-wiki holds search phrases separated by |)
+document.querySelectorAll('img[data-wiki]').forEach(async img=>{
+  const src=await find(img.dataset.wiki.split('|'));
+  if(src) img.src=src; else img.classList.add('hide');
+});
+
+// Movie filter + search
+let cat='all';
+const movies=[...document.querySelectorAll('.movie')];
+function apply(){
+  const q=document.getElementById('q').value.toLowerCase();
+  let n=0;
+  movies.forEach(m=>{
+    const ok=(cat==='all'||m.classList.contains(cat))&&m.textContent.toLowerCase().includes(q);
+    m.classList.toggle('hide',!ok); if(ok) n++;
+  });
+  document.getElementById('none').classList.toggle('hide',n>0);
+}
+document.querySelectorAll('.fbtn').forEach(b=>b.onclick=()=>{
+  cat=b.dataset.f;
+  document.querySelectorAll('.fbtn').forEach(x=>x.className='fbtn bg-card border border-line text-gray-300 px-4 py-1.5 rounded-full text-sm font-semibold');
+  b.className='fbtn bg-red text-white px-4 py-1.5 rounded-full text-sm font-semibold';
+  apply();
+});
+document.getElementById('q').oninput=apply;
+
+// Wishlist: wiki = Wikipedia article used to fetch the matching picture
+const wishes=[
+  {n:'iPhone 18 1TB Pro Max',w:['iPhone 18 Pro Max','iPhone 17 Pro Max','iPhone 17 Pro'],e:'📱'},
+  {n:'GeForce RTX 5090',w:['GeForce RTX 5090','Nvidia GeForce RTX 5090 graphics card','GeForce RTX 50 series'],e:'🎮'},
+  {n:'G.Skill Trident Z5 RAM',w:['G.Skill Trident Z5','G.Skill Trident Z5 DDR5 RAM','DDR5 RAM module'],e:'🧠'},
+  {n:'MacBook Pro',w:['MacBook Pro','MacBook Pro M4','MacBook Pro laptop'],e:'💻'},
+  {n:'Ferrari 2026 Team Kit',w:['Scuderia Ferrari 2026 team kit','Scuderia Ferrari team wear','Ferrari SF-26'],e:'🏎️'},
+  {n:'Real Madrid 2026 Team Kit (Home)',w:['Real Madrid 2025-26 home kit','Real Madrid home kit white shirt','Real Madrid CF'],e:'⚽'},
+  {n:'Snow Cheese from 24 Chicken',w:['24 Chicken snow cheese','Snow cheese fried chicken','Korean fried chicken cheese powder'],e:'🍗'},
+  {n:'Coke Zero',w:['Coca-Cola Zero Sugar','Coke Zero can','Diet Coke'],e:'🥤'}
+];
+const wish=document.getElementById('wish');
+wishes.forEach(it=>{
+  const b=document.createElement('button');
+  b.className='text-left bg-ink hover:border-sun border border-line rounded-lg p-3 text-sm font-medium text-gray-200 transition flex justify-between';
+  b.innerHTML=`<span>${it.e} ${it.n}</span><span class="text-sun text-xs">View</span>`;
+  b.onclick=()=>openModal(it);
+  wish.appendChild(b);
+});
+
+const $=id=>document.getElementById(id);
+async function openModal(it){
+  $('mt').textContent=it.n;
+  $('mi').classList.add('hide'); $('mf').classList.remove('hide');
+  $('me').textContent=it.e; $('ms').textContent='Loading picture...';
+  $('ml').href='https://www.google.com/search?tbm=isch&q='+encodeURIComponent(it.n);
+  $('modal').classList.remove('hide');
+  const src=it.img||await find(it.w);
+  if(src){ $('mi').src=src; $('mi').alt=it.n; $('mi').classList.remove('hide'); $('mf').classList.add('hide'); return; }
+  $('ms').textContent='No picture found. Use the link below to see photos.';
+}
+const close=()=>$('modal').classList.add('hide');
+$('mx').onclick=close;
+$('modal').onclick=e=>{if(e.target===$('modal'))close()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+</script>
 </body>
 </html>
